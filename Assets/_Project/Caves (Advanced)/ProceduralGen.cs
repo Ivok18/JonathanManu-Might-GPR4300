@@ -55,7 +55,6 @@ namespace ProceduralGenLearning.Advanced
 
         void Start()
         {
-            
             Generation();
         }
 
