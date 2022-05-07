@@ -6,15 +6,16 @@ namespace Might.MapGeneration
 {
     public class MapProcessor : MonoBehaviour
     {
-        private GenerationBehaviour generationBehaviour;
-        public List<List<Coord>> listOfRegions;
+        private GenerationBehaviour generation;
+
+        public List<List<Coord>> ListOfRegions { get; set; }
 
         public void ProcessMap(int [,] targetMap, int processAmount)
         {
-            generationBehaviour = GetComponent<GenerationBehaviour>();
+            generation = GetComponent<GenerationBehaviour>();
 
             #region GENERATION VALUES USED IN THIS FUNCTION
-            int caveMinimumSize = generationBehaviour.CaveMinimumSize;
+            int caveMinimumSize = generation.CaveMinimumSize;
             #endregion
 
             for (int i = 0; i < processAmount; i++)
@@ -38,11 +39,11 @@ namespace Might.MapGeneration
 
         public List<List<Coord>> GetRegions(int[,] targetMap, int tileType)
         {
-            generationBehaviour = GetComponent<GenerationBehaviour>();
+            generation = GetComponent<GenerationBehaviour>();
 
             #region GENERATION VALUES USED IN THIS FUNCTION
-            int width = generationBehaviour.Width;
-            int height = generationBehaviour.Height;
+            int width = generation.Width;
+            int height = generation.Height;
             #endregion
 
             List<List<Coord>> regions = new List<List<Coord>>();
@@ -70,15 +71,15 @@ namespace Might.MapGeneration
 
 
 
-            listOfRegions = regions;
-            return listOfRegions;
+            ListOfRegions = regions;
+            return ListOfRegions;
         }
 
         public List<Coord> GetRegionTiles(int[,] map, int startX, int startY)
         {
             #region GENERATION VALUES USED IN THIS FUNCTION
-            int width = generationBehaviour.Width;
-            int height = generationBehaviour.Height;
+            int width = generation.Width;
+            int height = generation.Height;
             #endregion
 
             List<Coord> tiles = new List<Coord>();
@@ -110,16 +111,14 @@ namespace Might.MapGeneration
                 }
             }
 
-            //Debug.Log(tiles.Count);
-
             return tiles;
         }
 
         public bool IsInMapRange(int x, int y)
         {
             #region GENERATION VALUES USED IN THIS FUNCTION
-            int width = generationBehaviour.Width;
-            int height = generationBehaviour.Height;
+            int width = generation.Width;
+            int height = generation.Height;
             #endregion
 
             if (x >= 0 && x < width && y >= 0 && y < height)
@@ -129,6 +128,8 @@ namespace Might.MapGeneration
 
             return false;
         }
+
+
       
     }
 }

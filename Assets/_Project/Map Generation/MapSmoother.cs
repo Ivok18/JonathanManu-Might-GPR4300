@@ -13,6 +13,7 @@ namespace Might.MapGeneration
         {
             generation = GetComponent<GenerationBehaviour>();
             terrainGenerator = GetComponent<TerrainGenerator>();
+            NeighbourTilesTracker tracker = GetComponent<NeighbourTilesTracker>();
 
             #region GENERATION VALUES USED IN THIS FUNCTION
             int width = generation.Width;
@@ -30,7 +31,7 @@ namespace Might.MapGeneration
                         }
                         else
                         {
-                            int surroundingGroundCount = generation.GetSurroundingGroundCount(x, y);
+                            int surroundingGroundCount = tracker.GetSurroundingGroundCount(x, y);
                             if (surroundingGroundCount > 4)
                             {
                                 generation.Map[x, y] = 1;

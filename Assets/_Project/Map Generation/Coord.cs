@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coord : MonoBehaviour
+namespace Might.MapGeneration
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Coord
     {
-        
+        public int x;
+        public int y;
+
+        public Coord(int _x, int _y)
+        {
+            x = _x;
+            y = _y;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

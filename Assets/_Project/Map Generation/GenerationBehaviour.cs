@@ -7,19 +7,6 @@ using UnityEngine.Tilemaps;
 
 namespace Might.MapGeneration
 {
-  
-    public class Coord
-    {
-        public int x;
-        public int y;
-
-        public Coord(int _x, int _y)
-        {
-            x = _x;
-            y = _y;
-        }
-    }
-
     public class GenerationBehaviour : MonoBehaviour
     {
         [Header("Terrain Generation")]
@@ -29,13 +16,12 @@ namespace Might.MapGeneration
         [Range(0, 100)]
         [SerializeField] private float smoothness;
 
-
         [Header("Cave Generation")]
         [Range(0, 100)]
         [SerializeField] private int randomFillPercent;
         [SerializeField] private int smoothAmount;
         [SerializeField] private int caveMinimumSize;
-        int[] perlinHeightList;
+        [SerializeField] private bool generationHasEnded;
 
         [Header("Tile")]
         [SerializeField] private TileBase groundTile;
@@ -43,9 +29,13 @@ namespace Might.MapGeneration
         [SerializeField] private Tilemap groundTilemap;
         [SerializeField] private Tilemap caveTilemap;
 
+
         [Header("Entity Spawner")]
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private GameObject enemyPrefab;
+
+
+        public int[,] Map { get; set; }
 
         public int Width
         {
@@ -93,9 +83,13 @@ namespace Might.MapGeneration
             get => caveTilemap;
             set => caveTilemap = value;
         }
-        public int[,] Map { get; set; }
 
-
+        public bool GenerationHasEnded
+        {
+            get => generationHasEnded;
+            set => generationHasEnded = value;
+        }
+      
         void Start()
         {
             Generation();
@@ -146,60 +140,12 @@ namespace Might.MapGeneration
             mapRenderer.RenderMap(Map, GroundTilemap, CaveTilemap, groundTile, caveTile);
             #endregion
 
+            GenerationHasEnded = true;
 
-            SpawnPlayer();
             SpawnEnemy();         
         }        
 
-       
-
-        public int GetSurroundingGroundCount(int gridX, int gridY)
-        {
-            int groundCount = 0;
-            for (int nebX = gridX - 1; nebX <= gridX+1; nebX++)
-            {
-                for (int nebY = gridY - 1; nebY <= gridY + 1; nebY++)
-                {
-                    if(nebX >= 0 && nebX < Width && nebY >= 0 && nebY < Height)
-                    {
-                        if(nebX != gridX || nebY != gridY)
-                        {
-                            if (Map[nebX,nebY] == 1)
-                            {
-                                groundCount++;
-                            }
-                        }
-                    }
-                }
-            }
-            return groundCount;
-
-        }
-        public int GetSurroundingCaveCount(int gridX, int gridY)
-        {
-            int caveCount = 0;
-            for (int nebX = gridX - 1; nebX <= gridX + 1; nebX++)
-            {
-                for (int nebY = gridY - 1; nebY <= gridY + 1; nebY++)
-                {
-                    if (nebX >= 0 && nebX < width && nebY >= 0 && nebY < height)
-                    {
-                        if (nebX != gridX || nebY != gridY)
-                        {
-                            if (Map[nebX, nebY] == 2)
-                            {
-                                caveCount++;
-                            }
-                        }
-                    }
-                }
-            }
-            return caveCount;
-
-        }
-
-
-
+        
         public void ClearPlayer()
         {
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
@@ -216,46 +162,22 @@ namespace Might.MapGeneration
                 DestroyImmediate(enemy);
             }
         }
-        public void SpawnPlayer()
-        {
-            MapProcessor mapProcessor = GetComponent<MapProcessor>();
-
-            foreach (List<Coord> region in mapProcessor.listOfRegions)
-            {
-                if (region.Count > caveMinimumSize)
-                {
-                    foreach (Coord tile in region)
-                    { 
-                        if (Map[tile.x, tile.y] == 2)
-                        {
-                            int surroundingCaveCount = GetSurroundingCaveCount(tile.x, tile.y);
-                            if (surroundingCaveCount >= 8)
-                            {
-                                GameObject player = Instantiate(playerPrefab, new Vector3(tile.x +1, tile.y, 0), Quaternion.identity);
-                                return;
-                            }
-                         
-                        }
-                        
-                    }
-                }
-            }
-           
-        }
         public void SpawnEnemy()
         {
             MapProcessor mapProcessor = GetComponent<MapProcessor>();
-            for (int x = width - 1; x >= 0 ; x--)
+            NeighbourTilesTracker tracker = GetComponent<NeighbourTilesTracker>();
+
+            for (int x = Width - 1; x >= 0 ; x--)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y < Height; y++)
                 {
                     if(Map[x,y] == 2)
                     {
                         List<Coord> region = mapProcessor.GetRegionTiles(Map,x, y); ;
-                        int caveCount = GetSurroundingCaveCount(x, y);
+                        int caveCount = tracker.GetSurroundingCaveCount(x, y);
                         if(caveCount >= 8)
                         {
-                            //Debug.Log("found cave tile");
+                        
                             Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
                             return;
                         }
@@ -263,32 +185,7 @@ namespace Might.MapGeneration
                     }
                 }
             }
-            /*
-            foreach (List<Coord> region in listOfRegions)
-            {
-                if (region.Count > caveMinimumSize)
-                {
-                    foreach (Coord tile in region)
-                    {
-                        if (Map[tile.x, tile.y] == 2)
-                        {
-                            if(tile.x > width/1.3f && tile.y == height /2)
-                            {
-                                int surroundingCaveCount = GetSurroundingCaveCount(tile.x, tile.y);
-                                if (surroundingCaveCount >= 8)
-                                {
-                                    
-                                    GameObject enemy = Instantiate(enemyPrefab, new Vector3(tile.x + 5, tile.y, 0), Quaternion.identity);
-                                    return;
-                                }
-
-                            }
-
-                        }
-
-                    }
-                }
-            }*/
+           
         }
     }
 }

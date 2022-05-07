@@ -6,7 +6,7 @@ using UnityEditor;
 namespace Might.MapGeneration
 {
     [CustomEditor(typeof(GenerationBehaviour))]
-    public class ProceduralGenButton : Editor
+    public class MapGenButton : Editor
     {
         public override void OnInspectorGUI()
         {

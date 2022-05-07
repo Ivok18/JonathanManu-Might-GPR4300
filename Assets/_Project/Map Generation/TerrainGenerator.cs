@@ -6,21 +6,21 @@ namespace Might.MapGeneration
 {
     public class TerrainGenerator : MonoBehaviour
     {
-        private GenerationBehaviour generationBehaviour;
+        private GenerationBehaviour generation;
  
         public int[] PerlinHeightList { get; set; }
 
         public int[,] GenerateTerrain(int[,] map)
         {
-            generationBehaviour = GetComponent<GenerationBehaviour>();
-            PerlinHeightList = new int[generationBehaviour.Width];
+            generation = GetComponent<GenerationBehaviour>();
+            PerlinHeightList = new int[generation.Width];
 
             #region GENERATION VALUES USED IN THIS FUNCTION
-            float seed = generationBehaviour.Seed;
-            float smoothness = generationBehaviour.Smoothness;
-            int width = generationBehaviour.Width;
-            int height = generationBehaviour.Height;
-            int randomFillPercent = generationBehaviour.RandomFillPercent;
+            float seed = generation.Seed;
+            float smoothness = generation.Smoothness;
+            int width = generation.Width;
+            int height = generation.Height;
+            int randomFillPercent = generation.RandomFillPercent;
             #endregion 
 
             System.Random pseudoRandom = new System.Random(seed.GetHashCode());
