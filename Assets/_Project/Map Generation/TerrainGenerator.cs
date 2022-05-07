@@ -9,11 +9,17 @@ namespace Might.MapGeneration
         private GenerationBehaviour generation;
  
         public int[] PerlinHeightList { get; set; }
+        public int[] ObstacleHeightList { get; set; }
+
+        int nbObstacle;
+
 
         public int[,] GenerateTerrain(int[,] map)
         {
             generation = GetComponent<GenerationBehaviour>();
+            //NeighbourTilesTracker neighbourTracker = GetComponent<NeighbourTilesTracker>();
             PerlinHeightList = new int[generation.Width];
+            ObstacleHeightList = new int[generation.Width];
 
             #region GENERATION VALUES USED IN THIS FUNCTION
             float seed = generation.Seed;
@@ -30,18 +36,43 @@ namespace Might.MapGeneration
                 perlinHeight = Mathf.RoundToInt(Mathf.PerlinNoise(x / smoothness, seed) * height / 2);
                 perlinHeight += height / 2;
                 PerlinHeightList[x] = perlinHeight;
+
+                /*int rand = Random.Range(0, 6);
+                if(rand <= 1 && nbObstacle < 5)
+                {
+                    //Coord coord = new Coord(x, );
+                    ObstacleHeightList[x] = PerlinHeightList[x] - PerlinHeightList[x] / 2;
+                    nbObstacle++;
+                }
+
+                if(nbObstacle >= 5)
+                {
+                    nbObstacle = 0;
+                }*/
+
                 for (int y = 0; y < PerlinHeightList[x]; y++)
                 {
-                    if (pseudoRandom.Next(1, 100) < randomFillPercent)
+                    if(y != ObstacleHeightList[x])
                     {
-                        map[x, y] = 1;
+                        if (pseudoRandom.Next(1, 100) < randomFillPercent)
+                        {
+                            map[x, y] = 1;
+                        }
+                        else
+                        {
+                            map[x, y] = 2;
+                        }
                     }
                     else
                     {
-                        map[x, y] = 2;
+                        map[x, y] = -1;
                     }
+                    
                 }
             }
+
+
+
             return map;
         }
     }

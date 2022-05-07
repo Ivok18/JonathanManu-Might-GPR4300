@@ -35,6 +35,9 @@ namespace Might.MapGeneration
         [SerializeField] private GameObject enemyPrefab;
 
 
+        public delegate void GenerationEndedCallback();
+        public static event GenerationEndedCallback OnGenerationEndedCallback;
+        
         public int[,] Map { get; set; }
 
         public int Width
@@ -83,13 +86,7 @@ namespace Might.MapGeneration
             get => caveTilemap;
             set => caveTilemap = value;
         }
-
-        public bool GenerationHasEnded
-        {
-            get => generationHasEnded;
-            set => generationHasEnded = value;
-        }
-      
+   
         void Start()
         {
             Generation();
@@ -140,8 +137,8 @@ namespace Might.MapGeneration
             mapRenderer.RenderMap(Map, GroundTilemap, CaveTilemap, groundTile, caveTile);
             #endregion
 
-            GenerationHasEnded = true;
-
+            OnGenerationEndedCallback?.Invoke();
+       
             SpawnEnemy();         
         }        
 

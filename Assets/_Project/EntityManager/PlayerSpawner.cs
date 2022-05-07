@@ -1,6 +1,7 @@
 using UnityEngine;
 using Might.MapGeneration;
 using System.Collections.Generic;
+using System;
 
 namespace Might.EntityManager
 {
@@ -10,15 +11,21 @@ namespace Might.EntityManager
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private int spawnOffset;
         bool isPlayerOnMap;
-        
-        private void Update()
+
+        private void OnEnable()
         {
-            if (!generation.GenerationHasEnded) return;
-            if(!isPlayerOnMap)
-            {              
-                SpawnPlayer();
-                isPlayerOnMap = true;
-            }       
+            GenerationBehaviour.OnGenerationEndedCallback += HandleGenerationEnd;
+        }
+
+        private void OnDisable()
+        {
+            GenerationBehaviour.OnGenerationEndedCallback -= HandleGenerationEnd;
+        }
+
+        private void HandleGenerationEnd()
+        {
+            SpawnPlayer();
+            //isPlayerOnMap = true;          
         }
 
         public void SpawnPlayer()

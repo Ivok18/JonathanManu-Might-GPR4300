@@ -25,9 +25,13 @@ namespace Might.MapGeneration
                 {
                     for (int y = 0; y < terrainGenerator.PerlinHeightList[x]; y++)
                     {
-                        if (x == 0 || y == 0 || x == width - 1 || y == terrainGenerator.PerlinHeightList[x] - 1)
+                        if (x == 0 || y == 0 || x == width - 1 || y == terrainGenerator.PerlinHeightList[x])
                         {
                             generation.Map[x, y] = 1;
+                        }
+                        else if(y == terrainGenerator.ObstacleHeightList[x])
+                        {
+                            generation.Map[x, y] = -1;
                         }
                         else
                         {
