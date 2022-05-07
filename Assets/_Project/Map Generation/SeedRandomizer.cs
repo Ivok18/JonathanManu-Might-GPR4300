@@ -8,14 +8,9 @@ namespace Might.MapGeneration
     {
         private GenerationBehaviour generation;
 
-        private void Awake()
-        {
-            generation = GetComponent<GenerationBehaviour>();
-
-        }
-
         public void RandomizeSeed()
         {
+            generation = GetComponent<GenerationBehaviour>();
             generation.Seed = Time.time;
         }
     }

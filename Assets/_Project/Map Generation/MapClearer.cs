@@ -7,16 +7,12 @@ namespace Might.MapGeneration
     public class MapClearer : MonoBehaviour
     {
         private GenerationBehaviour generationBehaviour;
-
-        private void Awake()
-        {
-            generationBehaviour = GetComponent<GenerationBehaviour>();
-        }
         
         public void ClearMap()
         {
+            generationBehaviour = GetComponent<GenerationBehaviour>();
             generationBehaviour.GroundTilemap.ClearAllTiles();
-            generationBehaviour.CaveTilemap.ClearAllTiles();
+            generationBehaviour.CaveTilemap.ClearAllTiles();        
         }
     }
 }

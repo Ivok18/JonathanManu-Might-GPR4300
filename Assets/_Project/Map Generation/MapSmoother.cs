@@ -9,13 +9,11 @@ namespace Might.MapGeneration
         private GenerationBehaviour generation;
         private TerrainGenerator terrainGenerator;
 
-        private void Awake()
+        public void SmoothMap()
         {
             generation = GetComponent<GenerationBehaviour>();
             terrainGenerator = GetComponent<TerrainGenerator>();
-        }
-        public void SmoothMap()
-        {
+
             #region GENERATION VALUES USED IN THIS FUNCTION
             int width = generation.Width;
             #endregion

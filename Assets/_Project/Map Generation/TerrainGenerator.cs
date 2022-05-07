@@ -9,18 +9,12 @@ namespace Might.MapGeneration
         private GenerationBehaviour generationBehaviour;
  
         public int[] PerlinHeightList { get; set; }
-      
-        private void Awake()
-        {
-            generationBehaviour = GetComponent<GenerationBehaviour>();
-        }
 
-        private void Start()
-        {
-            PerlinHeightList = new int[generationBehaviour.Width];
-        }
         public int[,] GenerateTerrain(int[,] map)
         {
+            generationBehaviour = GetComponent<GenerationBehaviour>();
+            PerlinHeightList = new int[generationBehaviour.Width];
+
             #region GENERATION VALUES USED IN THIS FUNCTION
             float seed = generationBehaviour.Seed;
             float smoothness = generationBehaviour.Smoothness;

@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 
 namespace Might.MapGeneration
 {
+  
     public class Coord
     {
         public int x;
@@ -46,52 +47,47 @@ namespace Might.MapGeneration
         [SerializeField] private GameObject playerPrefab;
         [SerializeField] private GameObject enemyPrefab;
 
-
-        List<List<Coord>> listOfRegions;
-
         public int Width
         {
             get => width;
             set => width = value;
         }
-
         public int Height
         {
             get => height;
             set => height = value;
         }
-
         public float Seed
         {
             get => seed;
             set => seed = value;
         }
-
         public float Smoothness
         {
             get => smoothness;
             set => smoothness = value;
         }
-
         public int RandomFillPercent
         {
             get => randomFillPercent;
             set => randomFillPercent = value;
         }
-
         public int SmoothAmount
         {
             get => smoothAmount;
             set => smoothAmount = value;
         }
+        public int CaveMinimumSize
+        {
+            get => caveMinimumSize;
+            set => caveMinimumSize = value;
 
-
+        }
         public Tilemap GroundTilemap
         {
             get => groundTilemap;
             set => groundTilemap = value;
         }
-
         public Tilemap CaveTilemap
         {
             get => caveTilemap;
@@ -99,10 +95,6 @@ namespace Might.MapGeneration
         }
         public int[,] Map { get; set; }
 
-        
-
-
-        
 
         void Start()
         {
@@ -112,242 +104,54 @@ namespace Might.MapGeneration
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
-            {
-                
+            {            
                 Generation();
             }
         }
 
         public void Generation()
         {
-            ClearMap();
-
-
-            // ClearPlayer();
-            // ClearEnemy();
-
+            #region Clear map tiles
+            MapClearer mapClearer = GetComponent<MapClearer>();
+            mapClearer.ClearMap();
+            #endregion
+            #region Clear entities
+            ClearPlayer();
+            ClearEnemy();
+            #endregion
+            #region Randomize seed
             SeedRandomizer seedRandomizer = GetComponent<SeedRandomizer>();
             seedRandomizer.RandomizeSeed();
-         
+            #endregion
+            #region Generate map array
             ArrayGenerator arrayGenerator = GetComponent<ArrayGenerator>();
             Map = arrayGenerator.GenerateArray(Width, Height, true);
-
+            #endregion
+            #region Generate terrain
             TerrainGenerator terrainGenerator = GetComponent<TerrainGenerator>();
             Map = terrainGenerator.GenerateTerrain(Map);
-
+            #endregion
+            #region Smooth map
             MapSmoother mapSmoother = GetComponent<MapSmoother>();
             mapSmoother.SmoothMap();
-            
-           
-            ProcessMap(5);
-            RenderMap(Map, groundTilemap, caveTilemap, groundTile, caveTile);
+            //SmoothMap();
+            #endregion
+            #region Process Map
+            //ProcessMap(5);
+            MapProcessor mapProcessor = GetComponent<MapProcessor>();
+            mapProcessor.ProcessMap(Map, 5);
+            #endregion
+            #region Render Map
+            MapRenderer mapRenderer = GetComponent<MapRenderer>();
+            mapRenderer.RenderMap(Map, GroundTilemap, CaveTilemap, groundTile, caveTile);
+            #endregion
+
+
             SpawnPlayer();
-            SpawnEnemy();
-            
-            
-        }
+            SpawnEnemy();         
+        }        
 
-        public void ClearMap()
-        {
-            GroundTilemap.ClearAllTiles();
-            CaveTilemap.ClearAllTiles();
-        }
-
-        public int[,] GenerateArray(int width, int height, bool empty)
-        {
-            int[,] map = new int[width, height];
-
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    if(empty)
-                    {
-                        map[x, y] = 0;                  
-                    }
-                    else
-                    {
-                        map[x, y] = 1;
-                    }
-                }
-            }
-
-            return map;
-        }
-
-        public int[,] TerrainGeneration(int[,] map)
-        {
-            System.Random pseudoRandom = new System.Random(seed.GetHashCode());
-            int perlinHeight;
-            for (int x = 0; x < width; x++)
-            {
-                perlinHeight = Mathf.RoundToInt(Mathf.PerlinNoise(x / smoothness, seed) * height/2);
-                perlinHeight += height / 2;
-                perlinHeightList[x] = perlinHeight;
-                for (int y = 0; y < perlinHeightList[x]; y++)
-                {
-                    //int caveValue = Mathf.RoundToInt(Mathf.PerlinNoise((x * modifier) + seed, (y * modifier) + seed));
-                    //map[x, y] = caveValue;
-                    /*if(caveValue == 1)
-                    {
-                        map[x, y] = 2;
-                    }
-                    else if(caveValue == 0)
-                    {
-                        map[x, y] = 1;
-                    }*/
-                    if(pseudoRandom.Next(1, 100) < randomFillPercent)
-                    {
-                        map[x, y] = 1;
-                    }
-                    else
-                    {
-                        map[x, y] = 2;
-                    }
-                }
-            }
-            return map;
-        }
-
-        public int[,] TerrainGeneration2(int[,] map)
-        {
-            int perlinHeight;
-
-            //1st
-            for (int x = 0; x < width; x++)
-            {
-                perlinHeight = Mathf.RoundToInt(Mathf.PerlinNoise(x / smoothness, seed) * height / 2);
-                perlinHeight += height / 2;
-                perlinHeightList[x] = perlinHeight;
-
-             /*   int minYstart = 0;
-                int maxYStart = 2;
-                int yStart = UnityEngine.Random.Range(minYstart, maxYStart); */
-
-                for (int y = 0; y < height ; y++)
-                {
-                    
-                    int minCaveLastYPos = perlinHeight - 1;
-                    int maxCaveLastYpos = perlinHeight + 2;
-                    var caveLastYpos = UnityEngine.Random.Range(minCaveLastYPos, maxCaveLastYpos);
-
-                    if (y <= caveLastYpos)
-                    {
-                        map[x, y] = 2;
-                    }
-                    else
-                    {
-                        map[x, y] = 1;
-                    }
-                                    
-                }
-
-            }
-
-            for (int x = 0; x < width; x++)
-            {
-                /*   int minYstart = 0;
-                   int maxYStart = 2;
-                   int yStart = UnityEngine.Random.Range(minYstart, maxYStart); */
-
-                for (int y = perlinHeightList[x]; y >= 0; y--)
-                {
-
-                    int minCaveLastYPos = height - perlinHeightList[x] - 1;
-                    int maxCaveLastYpos = height - perlinHeightList[x] + 2;
-                    var caveLastYpos = UnityEngine.Random.Range(minCaveLastYPos, maxCaveLastYpos);
-
-                    if (y >= caveLastYpos)
-                    {
-                        map[x, y] = 2;
-                    }
-                    else
-                    {
-                        map[x, y] = 1;
-                    }
-
-                }
-
-
-            }
-
-
-
-            return map;
-        }
-
-        public void RenderMap(int [,] map, Tilemap groundTilemap, Tilemap caveTilemap, TileBase groundTilebase, TileBase caveTilebase)
-        {
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    if(map[x,y] == 1 || map[x,y] == 0)
-                    {
-                        groundTilemap.SetTile(new Vector3Int(x, y, 0), groundTilebase);
-                    }
-                    else if(map[x, y] == 2)
-                    {
-                        caveTilemap.SetTile(new Vector3Int(x, y, 0), caveTilebase);
-                    }
-                }
-            }
-        }
-        
-        /*public void ClearMap()
-        {
-            groundTilemap.ClearAllTiles();
-            caveTilemap.ClearAllTiles();
-        }*/
-
-        public void ClearPlayer()
-        {
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            foreach(GameObject player in players)
-            {
-                DestroyImmediate(player);
-            }
-        }
-
-        public void ClearEnemy()
-        {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (GameObject enemy in enemies)
-            {
-                DestroyImmediate(enemy);
-            }
-        }
-
-        public void SmoothMap()
-        {
-            for (int i = 0; i < smoothAmount; i++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    for (int y = 0; y < perlinHeightList[x]; y++)
-                    {
-                        if (x == 0 || y == 0 || x == width - 1 || y == perlinHeightList[x] - 1)
-                        {
-                            Map[x, y] = 1;
-                        }
-                        else
-                        {
-                            int surroundingGroundCount = GetSurroundingGroundCount(x, y);
-                            if (surroundingGroundCount > 4)
-                            {
-                                Map[x, y] = 1;
-                            }
-                            else if (surroundingGroundCount < 4)
-                            {
-                                Map[x, y] = 2;
-                            }
-                           
-                        }
-                    }
-                }
-            }
-            
-        }
+       
 
         public int GetSurroundingGroundCount(int gridX, int gridY)
         {
@@ -356,7 +160,7 @@ namespace Might.MapGeneration
             {
                 for (int nebY = gridY - 1; nebY <= gridY + 1; nebY++)
                 {
-                    if(nebX >= 0 && nebX < width && nebY >= 0 && nebY < height)
+                    if(nebX >= 0 && nebX < Width && nebY >= 0 && nebY < Height)
                     {
                         if(nebX != gridX || nebY != gridY)
                         {
@@ -371,7 +175,6 @@ namespace Might.MapGeneration
             return groundCount;
 
         }
-
         public int GetSurroundingCaveCount(int gridX, int gridY)
         {
             int caveCount = 0;
@@ -395,125 +198,29 @@ namespace Might.MapGeneration
 
         }
 
-       
 
-        public void ProcessMap(int processAmount)
+
+        public void ClearPlayer()
         {
-            for (int i = 0; i < processAmount; i++)
+            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject player in players)
             {
-                List<List<Coord>> caveRegions = GetRegions(2);
-
-                int minimumSize = caveMinimumSize;
-                foreach (List<Coord> region in caveRegions)
-                {
-                    if (region.Count < minimumSize)
-                    {
-                        foreach (Coord tile in region)
-                        {
-                            Map[tile.x, tile.y] = 1;
-                        }
-                    }
-
-                }
+                DestroyImmediate(player);
             }
-            
-
-
-
-           
-
-      
-
-
-
-
-
         }
-        public List<List<Coord>> GetRegions(int tileType)
+        public void ClearEnemy()
         {
-            List<List<Coord>> regions = new List<List<Coord>>();
-            int[,] mapFlags = new int[width, height];
-           
-
-            for (int x = 0; x < width; x++)
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            foreach (GameObject enemy in enemies)
             {
-                for (int y = 0; y < height; y++)
-                {
-                    
-                    if(mapFlags[x,y] == 0 && Map[x,y] == tileType)
-                    {
-                        List<Coord> newRegion = GetRegionTiles(x, y);
-                        regions.Add(newRegion);
-                        //Debug.Log(regions.Count);
-                        //Debug.Log(newRegion.Count);
-
-                        foreach(Coord tile in newRegion)
-                        {
-                            mapFlags[tile.x, tile.y] = 1;
-                            //Instantiate(enemyPrefab, new Vector3(tile.x, tile.y, 0), Quaternion.identity);
-                        }
-                    }
-                   
-                }
+                DestroyImmediate(enemy);
             }
-
-         
-
-            listOfRegions = regions;
-            return listOfRegions;
-
-            
         }
-
-        public List<Coord> GetRegionTiles(int startX, int startY)
-        {
-            List<Coord> tiles = new List<Coord>();
-            int[,] mapFlags = new int[width, height];
-            int tileType = Map[startX, startY];
-
-            Queue<Coord> queue = new Queue<Coord>();
-            queue.Enqueue(new Coord(startX, startY));
-            mapFlags[startX, startY] = 1;
-
-            while(queue.Count > 0)
-            {
-                Coord tile = queue.Dequeue();
-                tiles.Add(tile);
-
-                for (int x = tile.x - 1; x <= tile.x + 1; x++)
-                {
-                    for (int y = 0; y <= tile.y + 1; y++)
-                    {
-                        if (IsInMapRange(x, y) && (x == tile.x || y == tile.y))
-                        {
-                            if (mapFlags[x, y] == 0 && Map[x, y] == tileType)
-                            {
-                                mapFlags[x, y] = 1;
-                                queue.Enqueue(new Coord(x, y));
-                            }
-                        }
-                    }
-                }
-            }
-
-            //Debug.Log(tiles.Count);
-            
-            return tiles;
-        }
-
-        public bool IsInMapRange(int x, int y)
-        {
-            if (x >= 0 && x < width && y >= 0 && y < height)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
         public void SpawnPlayer()
         {
-            foreach (List<Coord> region in listOfRegions)
+            MapProcessor mapProcessor = GetComponent<MapProcessor>();
+
+            foreach (List<Coord> region in mapProcessor.listOfRegions)
             {
                 if (region.Count > caveMinimumSize)
                 {
@@ -535,16 +242,16 @@ namespace Might.MapGeneration
             }
            
         }
-
         public void SpawnEnemy()
         {
+            MapProcessor mapProcessor = GetComponent<MapProcessor>();
             for (int x = width - 1; x >= 0 ; x--)
             {
                 for (int y = 0; y < height; y++)
                 {
                     if(Map[x,y] == 2)
                     {
-                        List<Coord> region = GetRegionTiles(x, y);
+                        List<Coord> region = mapProcessor.GetRegionTiles(Map,x, y); ;
                         int caveCount = GetSurroundingCaveCount(x, y);
                         if(caveCount >= 8)
                         {
