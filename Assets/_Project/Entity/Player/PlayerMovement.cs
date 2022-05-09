@@ -22,12 +22,17 @@ namespace Might.Entity.Player
             movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             movement.Normalize();
 
-            //Handle rotation
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 aimDirection = mousePosition - rb.position;
-            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-            rb.rotation = aimAngle;
-
+            
+            PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
+            if(playerStateTracker.CurrentState != PlayerState.Attacking)
+            {
+                //Handle rotation
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 aimDirection = mousePosition - rb.position;
+                float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+                rb.rotation = aimAngle;
+            }
+           
         }
 
         private void FixedUpdate()
