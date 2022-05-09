@@ -31,12 +31,7 @@ namespace Might.Entity.Player.States
             if (playerStateTracker.CurrentState != PlayerState.Attacking) return;
 
             DOTween.SetTweensCapacity(1000, 1000);
-            sword.DORotate(new Vector3(0, 0, SwordStartRotation - 30), 0.2f, RotateMode.Fast);
-
-
-            
-           
-           
+            sword.DORotate(new Vector3(0, 0, SwordStartRotation - 30), 0.2f, RotateMode.Fast);   
         }
 
 
