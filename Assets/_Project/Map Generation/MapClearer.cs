@@ -11,8 +11,10 @@ namespace Might.MapGeneration
         public void ClearMap()
         {
             generation = GetComponent<GenerationBehaviour>();
+
             generation.GroundTilemap.ClearAllTiles();
-            generation.CaveTilemap.ClearAllTiles();        
+            generation.CaveTilemap.ClearAllTiles();
+            generation.ObstacleTilemap.ClearAllTiles();
         }
     }
 }

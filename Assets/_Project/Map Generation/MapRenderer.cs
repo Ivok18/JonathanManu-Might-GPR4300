@@ -8,9 +8,13 @@ namespace Might.MapGeneration
     public class MapRenderer : MonoBehaviour
     {
         private GenerationBehaviour generation;
-        public void RenderMap(int[,] map, Tilemap groundTilemap, Tilemap caveTilemap, TileBase groundTilebase, TileBase caveTilebase)
+        private TerrainGenerator terrainGenerator;
+
+        public void RenderMap(int[,] map, Tilemap groundTilemap, Tilemap caveTilemap, Tilemap ObstacleTilemap, 
+            TileBase groundTilebase, TileBase caveTilebase, TileBase obstacleTilebase)
         {
             generation = GetComponent<GenerationBehaviour>();
+            terrainGenerator = GetComponent<TerrainGenerator>();
 
             #region GENERATION VALUES USED IN THIS FUNCTION
             int width = generation.Width;
@@ -28,6 +32,10 @@ namespace Might.MapGeneration
                     else if (map[x, y] == 2)
                     {
                         caveTilemap.SetTile(new Vector3Int(x, y, 0), caveTilebase);
+                    }
+                    else if (map[x,y] == -1)
+                    {
+                        ObstacleTilemap.SetTile(new Vector3Int(x, y, 0), obstacleTilebase);
                     }
                 }
             }

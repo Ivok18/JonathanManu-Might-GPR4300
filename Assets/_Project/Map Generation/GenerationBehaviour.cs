@@ -26,9 +26,10 @@ namespace Might.MapGeneration
         [Header("Tile")]
         [SerializeField] private TileBase groundTile;
         [SerializeField] private TileBase caveTile;
+        [SerializeField] private TileBase obstacleTile;
         [SerializeField] private Tilemap groundTilemap;
         [SerializeField] private Tilemap caveTilemap;
-
+        [SerializeField] private Tilemap obstacleTilemap;
 
         [Header("Entity Spawner")]
         [SerializeField] private GameObject playerPrefab;
@@ -86,7 +87,14 @@ namespace Might.MapGeneration
             get => caveTilemap;
             set => caveTilemap = value;
         }
-   
+
+        public Tilemap ObstacleTilemap
+        {
+            get => obstacleTilemap;
+            set => obstacleTilemap = value;
+        }
+ 
+
         void Start()
         {
             Generation();
@@ -106,35 +114,41 @@ namespace Might.MapGeneration
             MapClearer mapClearer = GetComponent<MapClearer>();
             mapClearer.ClearMap();
             #endregion
+
             #region Clear entities
             ClearPlayer();
             ClearEnemy();
             #endregion
+
             #region Randomize seed
             SeedRandomizer seedRandomizer = GetComponent<SeedRandomizer>();
             seedRandomizer.RandomizeSeed();
             #endregion
+
             #region Generate map array
             ArrayGenerator arrayGenerator = GetComponent<ArrayGenerator>();
             Map = arrayGenerator.GenerateArray(Width, Height, true);
             #endregion
+
             #region Generate terrain
             TerrainGenerator terrainGenerator = GetComponent<TerrainGenerator>();
             Map = terrainGenerator.GenerateTerrain(Map);
             #endregion
+
             #region Smooth map
             MapSmoother mapSmoother = GetComponent<MapSmoother>();
             mapSmoother.SmoothMap();
-            //SmoothMap();
             #endregion
+
             #region Process Map
-            //ProcessMap(5);
             MapProcessor mapProcessor = GetComponent<MapProcessor>();
             mapProcessor.ProcessMap(Map, 5);
             #endregion
+
             #region Render Map
             MapRenderer mapRenderer = GetComponent<MapRenderer>();
-            mapRenderer.RenderMap(Map, GroundTilemap, CaveTilemap, groundTile, caveTile);
+            mapRenderer.RenderMap(Map, GroundTilemap, CaveTilemap, ObstacleTilemap,
+                groundTile, caveTile, obstacleTile);
             #endregion
 
             OnGenerationEndedCallback?.Invoke();

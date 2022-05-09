@@ -9,17 +9,14 @@ namespace Might.MapGeneration
         private GenerationBehaviour generation;
  
         public int[] PerlinHeightList { get; set; }
-        public int[] ObstacleHeightList { get; set; }
-
-        int nbObstacle;
-
+        public Coord ObstacleCoord { get; set; }
 
         public int[,] GenerateTerrain(int[,] map)
         {
+
             generation = GetComponent<GenerationBehaviour>();
-            //NeighbourTilesTracker neighbourTracker = GetComponent<NeighbourTilesTracker>();
             PerlinHeightList = new int[generation.Width];
-            ObstacleHeightList = new int[generation.Width];
+            ObstacleCoord = new Coord(0, 0);
 
             #region GENERATION VALUES USED IN THIS FUNCTION
             float seed = generation.Seed;
@@ -36,36 +33,31 @@ namespace Might.MapGeneration
                 perlinHeight = Mathf.RoundToInt(Mathf.PerlinNoise(x / smoothness, seed) * height / 2);
                 perlinHeight += height / 2;
                 PerlinHeightList[x] = perlinHeight;
+                
 
-                /*int rand = Random.Range(0, 6);
-                if(rand <= 1 && nbObstacle < 5)
+                if(x == width - width / 2 - 2)
                 {
-                    //Coord coord = new Coord(x, );
-                    ObstacleHeightList[x] = PerlinHeightList[x] - PerlinHeightList[x] / 2;
-                    nbObstacle++;
+                    ObstacleCoord.x = x;
+                    ObstacleCoord.y = PerlinHeightList[x] - PerlinHeightList[x] / 2;
                 }
-
-                if(nbObstacle >= 5)
-                {
-                    nbObstacle = 0;
-                }*/
-
+                
+          
                 for (int y = 0; y < PerlinHeightList[x]; y++)
                 {
-                    if(y != ObstacleHeightList[x])
+                    if (pseudoRandom.Next(1, 100) < randomFillPercent)
                     {
-                        if (pseudoRandom.Next(1, 100) < randomFillPercent)
-                        {
-                            map[x, y] = 1;
-                        }
-                        else
-                        {
-                            map[x, y] = 2;
-                        }
+                        map[x, y] = 1;
                     }
                     else
                     {
-                        map[x, y] = -1;
+                        map[x, y] = 2;
+                    }
+
+                    if(x == ObstacleCoord.x && y == ObstacleCoord.y)
+                    {
+                        int obstaclePosX = ObstacleCoord.x;
+                        int obstaclePosY = ObstacleCoord.y;
+                        map[obstaclePosX, obstaclePosY] = -1;
                     }
                     
                 }

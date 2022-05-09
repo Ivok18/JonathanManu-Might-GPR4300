@@ -29,10 +29,6 @@ namespace Might.MapGeneration
                         {
                             generation.Map[x, y] = 1;
                         }
-                        else if(y == terrainGenerator.ObstacleHeightList[x])
-                        {
-                            generation.Map[x, y] = -1;
-                        }
                         else
                         {
                             int surroundingGroundCount = tracker.GetSurroundingGroundCount(x, y);
@@ -45,6 +41,12 @@ namespace Might.MapGeneration
                                 generation.Map[x, y] = 2;
                             }
 
+                        }
+                        if (x == terrainGenerator.ObstacleCoord.x && y == terrainGenerator.ObstacleCoord.y)
+                        {
+                            int obstaclePosX = terrainGenerator.ObstacleCoord.x;
+                            int obstaclePosY = terrainGenerator.ObstacleCoord.y;
+                            generation.Map[obstaclePosX, obstaclePosY] = -1;
                         }
                     }
                 }
