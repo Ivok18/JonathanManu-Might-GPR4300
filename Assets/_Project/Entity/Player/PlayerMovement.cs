@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Might.Entity.Player.States;
 
 namespace Might.Entity.Player
 {
@@ -22,11 +21,15 @@ namespace Might.Entity.Player
             movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             movement.Normalize();
 
-            
             PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
             if(playerStateTracker.CurrentState != PlayerState.Attacking)
-            {
-                //Handle rotation
+            {         
+                //Make sure sword rotation is 0 when not attacking
+                AttackStateBehaviour attackStateBehaviour;
+                attackStateBehaviour = GetComponent<AttackStateBehaviour>();
+                attackStateBehaviour.SetSwordRotation(0);
+
+                //Make the player rotation follow the mouse
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Vector2 aimDirection = mousePosition - rb.position;
                 float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;

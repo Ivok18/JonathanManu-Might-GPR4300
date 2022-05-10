@@ -7,27 +7,19 @@ namespace Might.Entity.Player
     {
         private PlayerStateTracker playerStateTracker;
 
+        public delegate void StateSwitchedCallback(PlayerState state);
+        public static event StateSwitchedCallback OnStateSwitchedCallback;
+
         private void Awake()
         {
             playerStateTracker = GetComponent<PlayerStateTracker>();
         }
 
-        private void Update()
+        public void SwitchToState(PlayerState newState)
         {
-            if(Input.GetKeyDown(KeyCode.M))
-            {
-                SwitchTo(PlayerState.Attacking);
-            }
-        }
+            playerStateTracker.CurrentState = newState;
 
-        public void SwitchTo(PlayerState newState)
-        {
-            if (newState == PlayerState.Attacking)
-            {
-                AttackStateBehaviour attackStateBehaviour = GetComponent<AttackStateBehaviour>();
-                attackStateBehaviour.SwordStartRotation = transform.eulerAngles.z;
-            }
-            playerStateTracker.CurrentState = newState;       
+            OnStateSwitchedCallback?.Invoke(newState);
         }
     }
 }
