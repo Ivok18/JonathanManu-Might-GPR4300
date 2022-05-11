@@ -207,7 +207,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 15.588855
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -231,7 +231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.3, y: 20, z: -10}
+  m_LocalPosition: {x: 36.2, y: 15.7, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -555,9 +555,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6779807490209637982, guid: e269d554d10101147a8dcd80f3ed64a3,
         type: 3}
-      propertyPath: groundTile
+      propertyPath: caveTile
       value: 
       objectReference: {fileID: 11400000, guid: 532c32650cc836748bbc97c7e05de68b,
+        type: 2}
+    - target: {fileID: 6779807490209637982, guid: e269d554d10101147a8dcd80f3ed64a3,
+        type: 3}
+      propertyPath: groundTile
+      value: 
+      objectReference: {fileID: 11400000, guid: ff44ef6ebec9d2b449f0a690acf5c89c,
+        type: 2}
+    - target: {fileID: 6779807490209637982, guid: e269d554d10101147a8dcd80f3ed64a3,
+        type: 3}
+      propertyPath: obstacleTile
+      value: 
+      objectReference: {fileID: 11400000, guid: 21283709cd856854f9ba91d4b5f34190,
         type: 2}
     - target: {fileID: 7204309206511544087, guid: e269d554d10101147a8dcd80f3ed64a3,
         type: 3}
