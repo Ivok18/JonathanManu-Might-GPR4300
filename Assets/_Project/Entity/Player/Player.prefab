@@ -451,6 +451,7 @@ MonoBehaviour:
   swordRotationModifier: -40
   attackDuration: 0.25
   sword: {fileID: 8942571586883660192}
+  timeUntilNextAttack: 0.5
 --- !u!1 &8459280164881137561
 GameObject:
   m_ObjectHideFlags: 0
