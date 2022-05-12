@@ -207,7 +207,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15.588855
+  orthographic size: 24.942028
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -390,7 +390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089863415}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 69, y: 3, z: 0}
+  m_LocalPosition: {x: 60.7, y: 13.4, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -557,13 +557,13 @@ PrefabInstance:
         type: 3}
       propertyPath: caveTile
       value: 
-      objectReference: {fileID: 11400000, guid: 532c32650cc836748bbc97c7e05de68b,
+      objectReference: {fileID: 11400000, guid: 9f5cf4cdd9b2aec49921cca5e788966e,
         type: 2}
     - target: {fileID: 6779807490209637982, guid: e269d554d10101147a8dcd80f3ed64a3,
         type: 3}
       propertyPath: groundTile
       value: 
-      objectReference: {fileID: 11400000, guid: ff44ef6ebec9d2b449f0a690acf5c89c,
+      objectReference: {fileID: 11400000, guid: c9c99251ddc03aa41a46ee5f26b32489,
         type: 2}
     - target: {fileID: 6779807490209637982, guid: e269d554d10101147a8dcd80f3ed64a3,
         type: 3}
@@ -571,6 +571,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 21283709cd856854f9ba91d4b5f34190,
         type: 2}
+    - target: {fileID: 6851637858944032642, guid: e269d554d10101147a8dcd80f3ed64a3,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.x
+      value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851637858944032642, guid: e269d554d10101147a8dcd80f3ed64a3,
+        type: 3}
+      propertyPath: m_ChunkCullingBounds.y
+      value: 7.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7204309206511544087, guid: e269d554d10101147a8dcd80f3ed64a3,
         type: 3}
       propertyPath: m_Name
@@ -593,12 +603,12 @@ PrefabInstance:
     - target: {fileID: 8090676565841822662, guid: 5e2190f3fc672bf48a2cc3a2b8a02d94,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8090676565841822662, guid: 5e2190f3fc672bf48a2cc3a2b8a02d94,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 8.7
       objectReference: {fileID: 0}
     - target: {fileID: 8090676565841822662, guid: 5e2190f3fc672bf48a2cc3a2b8a02d94,
         type: 3}
@@ -644,6 +654,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8090676565841822664, guid: 5e2190f3fc672bf48a2cc3a2b8a02d94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090676565841822665, guid: 5e2190f3fc672bf48a2cc3a2b8a02d94,
         type: 3}
