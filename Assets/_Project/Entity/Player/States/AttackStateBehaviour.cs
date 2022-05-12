@@ -1,6 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
-using System;
+
 
 namespace Might.Entity.Player.States
 {
@@ -10,9 +10,10 @@ namespace Might.Entity.Player.States
         [SerializeField] private float swordRotationModifier;
         [SerializeField] private float attackDuration;
         [SerializeField] private Transform sword;
-        private float timeUntilNextAttack;
-       
-        
+        [SerializeField] private Vector3 swordOnBackAngle;
+        [SerializeField] private Vector3 swordDrawPosition;
+
+        private float attackCooldown;   
         public float SwordStartRotation
         {
             get => swordStartRotation;
@@ -24,33 +25,46 @@ namespace Might.Entity.Player.States
             get => swordRotationModifier;
             set => swordRotationModifier = value;
         }
-
         public float EndRotation { get; set; }
-
-       
-        
-
         public Transform Sword
         {
             get => sword;
             set => sword = value;
         }
 
+
         private void OnEnable()
         {
             PlayerStateSwitcher.OnStateSwitchedCallback += HandleStateSwitch;
+        }
+        private void HandleStateSwitch(PlayerState newState)
+        {
+            if (newState == PlayerState.Attacking)
+            {
+                //Desactivate player shield
+                DefendStateBehaviour defendStateBehaviour = GetComponent<DefendStateBehaviour>();
+                defendStateBehaviour.DesactivateShield();
+
+                //Allow player to move
+                PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+                playerMovement.RestoreMovement();
+
+                //Draw player sword
+                DrawSword();
+
+                //Set sword angle before slash attack
+                SetSwordRotation(SwordStartRotation);
+            }
         }
 
         private void OnDisable()
         {
             PlayerStateSwitcher.OnStateSwitchedCallback -= HandleStateSwitch;
         }
-   
 
         void Update()
         {
           
-
             #region Get player state tracker
             PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
             #endregion
@@ -59,17 +73,18 @@ namespace Might.Entity.Player.States
             playerStateSwitcher = GetComponent<PlayerStateSwitcher>();
             #endregion
 
-            //Ensure cps limit
-            if (timeUntilNextAttack > 0)
+            //Update timer for attack cooldown
+            if (attackCooldown > 0)
             {
-                timeUntilNextAttack -= Time.deltaTime;
+                attackCooldown -= Time.deltaTime;
             }             
             else
             {
-                //Trigger attack when key is pressed
+                //Trigger attack when left mouse is pressed
                 if (Input.GetMouseButtonDown(0))
                 {
-                    timeUntilNextAttack = 1f / 2.7f;
+                    //Ensure cps limit
+                    attackCooldown = 1f / 2.7f;
                     playerStateSwitcher.SwitchToState(PlayerState.Attacking);
                 }
             }
@@ -115,13 +130,24 @@ namespace Might.Entity.Player.States
             return Sword.localEulerAngles.z >= EndRotation;
         }
 
-        private void HandleStateSwitch(PlayerState newState)
+        public void PutSwordOnPlayerBack()
         {
-            if (newState == PlayerState.Attacking)
-            {               
-                SetSwordRotation(SwordStartRotation);
-            }       
+            SpriteRenderer spriteRenderer = Sword.GetComponentInChildren<SpriteRenderer>();
+            spriteRenderer.transform.localPosition = Vector3.zero;
+            spriteRenderer.transform.localEulerAngles = swordOnBackAngle;
+           
         }
+
+        public void DrawSword()
+        {
+            SpriteRenderer spriteRenderer = Sword.GetComponentInChildren<SpriteRenderer>();
+            spriteRenderer.transform.localPosition = swordDrawPosition;
+            spriteRenderer.transform.localEulerAngles = Vector3.zero;
+        }
+
+
+
+       
 
     }
 }

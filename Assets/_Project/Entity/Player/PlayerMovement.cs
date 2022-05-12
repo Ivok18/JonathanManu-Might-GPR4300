@@ -1,27 +1,40 @@
 using UnityEngine;
 using Might.Entity.Player.States;
+using System;
 
 namespace Might.Entity.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float moveSpeed;
+        private float currentMoveSpeed;
         private Vector2 movement;
         private Rigidbody2D rb;
-       
-    
+
+      
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
         }
 
-        void Update()
+        private void Start()
         {
-            //Handle movement
+            currentMoveSpeed = moveSpeed;
+        }
+
+        private void Update()
+        {
+            #region Get player state tracker
+            PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
+            #endregion
+
+            //Handle movement          
             movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             movement.Normalize();
-
-            PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
+            
+               
+            //Handle rotation
             if(playerStateTracker.CurrentState != PlayerState.Attacking)
             {         
                 //Make sure sword rotation is 0 when not attacking
@@ -38,9 +51,23 @@ namespace Might.Entity.Player
            
         }
 
+      
+
         private void FixedUpdate()
         {
-            rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
+            rb.velocity = movement * currentMoveSpeed * Time.fixedDeltaTime;                    
         }
+
+        public void ImmobilizePlayer()
+        {
+            currentMoveSpeed = 0;
+        }
+
+        public void RestoreMovement()
+        {
+            currentMoveSpeed = moveSpeed;
+        }
+
+
     }
 }

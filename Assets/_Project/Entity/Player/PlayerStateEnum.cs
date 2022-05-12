@@ -5,7 +5,8 @@ namespace Might.Entity.Player
     public enum PlayerState
     {
         None,
-        Attacking
+        Attacking,
+        Defending
     }
 }
 
