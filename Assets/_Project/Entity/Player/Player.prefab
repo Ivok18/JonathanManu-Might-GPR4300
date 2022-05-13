@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 320958459259054395}
-  startScale: {x: 0.1, y: 0.1, z: 0.1}
+  startScale: {x: 0.65, y: 0.65, z: 0.65}
 --- !u!1 &8459280164881137561
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
     type: 3}
-  m_Color: {r: 0, g: 0.7617047, b: 1, a: 0.49019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6117647}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

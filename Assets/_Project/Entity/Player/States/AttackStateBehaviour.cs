@@ -44,6 +44,7 @@ namespace Might.Entity.Player.States
                 //Desactivate player shield
                 DefendStateBehaviour defendStateBehaviour = GetComponent<DefendStateBehaviour>();
                 defendStateBehaviour.DesactivateShield();
+   
 
                 //Allow player to move
                 PlayerMovement playerMovement = GetComponent<PlayerMovement>();

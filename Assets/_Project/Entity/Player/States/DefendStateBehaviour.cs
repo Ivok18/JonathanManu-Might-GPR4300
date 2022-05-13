@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections;
 
 namespace Might.Entity.Player.States
 {
@@ -8,12 +9,20 @@ namespace Might.Entity.Player.States
 
         [SerializeField] private Transform shield;
         [SerializeField] private Vector3 startScale;
+        private Sequence shieldAnimation;
 
         public Transform Shield
         {
             get => shield;
             set => shield = value;
         }
+
+        public Sequence ShieldAnimation
+        {
+            get => shieldAnimation;
+            set => shieldAnimation = value;
+        }
+
 
         private void OnEnable()
         {
@@ -26,18 +35,14 @@ namespace Might.Entity.Player.States
             {
                 //Activate Shield
                 ActivateShield();
-
-                //Set starting scale
-                //Shield.localScale = startScale;
-
-                //Stop player movement
-                PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-                playerMovement.ImmobilizePlayer();
+                
+                //Stop player movement (à voir..)
+                //PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+                //playerMovement.ImmobilizePlayer();
             
                 //Put sword on player back
                 AttackStateBehaviour attackStateBehaviour = GetComponent<AttackStateBehaviour>();
-                attackStateBehaviour.PutSwordOnPlayerBack();
-                
+                attackStateBehaviour.PutSwordOnPlayerBack();               
             }
         }
 
@@ -66,24 +71,27 @@ namespace Might.Entity.Player.States
             //Stop update method if player is not defending
             if (playerStateTracker.CurrentState != PlayerState.Defending) return;
 
-            //Shield animation
-            #region Prevent capacity overload (just some details dw)
-            DOTween.SetTweensCapacity(10000, 10000);
-            #endregion
-            //Shield.DOScale(1,0.5f);
-           
-
         }
 
         public void ActivateShield()
         {
+            //Enable game object
             Shield.gameObject.SetActive(true);
+
+            //Show animation
+            Tweener shieldAnimSet = Shield.DOScale(0.9f, 0.2f);
+            shieldAnimSet.ChangeStartValue(startScale);
+            shieldAnimation = DOTween.Sequence(Shield);
+            shieldAnimation.Append(shieldAnimSet);
+            shieldAnimation.SetLoops(-1, LoopType.Yoyo);
         }
 
         public void DesactivateShield()
         {
-            Shield.gameObject.SetActive(false);
+            //Hide game object and hide animation too
+            Shield.gameObject.SetActive(false);           
         }
-   
+
+       
     }
 }
