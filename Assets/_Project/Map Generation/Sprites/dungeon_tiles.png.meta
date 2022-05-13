@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ef785db07826c24494e15a3251920ec
+guid: cc4ff9f3cdfe9e94eac8f2b099bf7dde
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,1334 +104,1313 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lightblue_bricks_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf5f4e6eafb5aae45890fac8459c8ca3
-      internalID: -1459298261
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d93f4a3c20a9b9049ab755972419ce0d
-      internalID: -1338555812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 831fe8c7e20aff04997f62cc12fc9e95
-      internalID: 1656791578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9030c493b4059084eb20565323ea9e05
-      internalID: 1664013066
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e245633b09f920347a67b26a4bab70f1
-      internalID: 956656033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_5
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 112
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9dcce4d17995faa46bf0e52d645bfe12
-      internalID: 1949073642
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_6
+      name: DungeonTopRight
       rect:
         serializedVersion: 2
         x: 96
-        y: 112
+        y: 336
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a1b2764699a4f84091d21703c8f6870
-      internalID: -1809630465
+      spriteID: b5c44017631a09d40bf0a100edd785ea
+      internalID: 91487423
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_7
+      name: dungeon_tiles_1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 112
-        width: 16
-        height: 16
+        x: 116
+        y: 292
+        width: 48
+        height: 60
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32f64be4c4bb82249a29bbba470865b2
-      internalID: -238664166
+      spriteID: aceb3bb140307ac46a09743c4aa6c0f3
+      internalID: 961137836
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_8
+      name: dungeon_tiles_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 16
+        x: 168
+        y: 304
+        width: 64
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dca1a314553972459ef80f4de20d33a
-      internalID: 525658476
+      spriteID: 2b16f12b0f079b34798e6316784d8180
+      internalID: -2115758618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_9
+      name: dungeon_tiles_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 16
+        x: 236
+        y: 304
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fe081629f93e1745b4f81409d0bda6f
-      internalID: 1813568719
+      spriteID: 187c7608c3f7c754da695ba7707cae20
+      internalID: 1972858391
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_10
+      name: dungeon_tiles_4
       rect:
         serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 16
+        x: 288
+        y: 304
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a040242bd9ba4546850ddff7efc9acb
-      internalID: -1196050406
+      spriteID: 4e053e1aed80a354f877aebbea9a5de9
+      internalID: 698941127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_11
+      name: dungeon_tiles_5
       rect:
         serializedVersion: 2
-        x: 48
-        y: 96
+        x: 116
+        y: 244
         width: 16
-        height: 16
+        height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87befb1fbf654b64185231df7bf7906a
-      internalID: -1925860743
+      spriteID: 40e6b58f5e69db449b0a9ffcce035a2c
+      internalID: 1970085048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_12
+      name: dungeon_tiles_6
       rect:
         serializedVersion: 2
-        x: 64
-        y: 96
-        width: 16
-        height: 16
+        x: 236
+        y: 252
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b1647ba1a564314884e897c250efd64
-      internalID: 938999728
+      spriteID: 950ce175990573e4c9f4a04bb7549f7e
+      internalID: 1857031371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_13
+      name: dungeon_tiles_7
       rect:
         serializedVersion: 2
-        x: 80
-        y: 96
+        x: 288
+        y: 268
         width: 16
-        height: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a4ae6b7372e4de94a8c6578999c833af
-      internalID: -685112650
+      spriteID: fdcd79a60d4d5ec48b6373eca6386ef0
+      internalID: -1078011783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_14
+      name: dungeon_tiles_8
       rect:
         serializedVersion: 2
-        x: 96
-        y: 96
-        width: 16
+        x: 308
+        y: 284
+        width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d485a17cb5a69f64991ee315dbda4f3c
-      internalID: 464514506
+      spriteID: e5d42aaab2dcdb647a1091bacd3784be
+      internalID: 1423521162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_15
+      name: dungeon_tiles_9
       rect:
         serializedVersion: 2
-        x: 112
-        y: 96
-        width: 16
+        x: 142
+        y: 256
+        width: 17
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e5095b4f4a917244986b71d527361d7
-      internalID: 1421333547
+      spriteID: 222df7fafa1b83a42b44e58b3120120b
+      internalID: -1703668908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_16
+      name: dungeon_tiles_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 16
-        height: 16
+        x: 162
+        y: 256
+        width: 18
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b02f17b595f1c3249b9c90f34b099a9f
-      internalID: -1771420017
+      spriteID: b68bf1027026563419596fc116d524a0
+      internalID: -1601114012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_17
+      name: dungeon_tiles_11
       rect:
         serializedVersion: 2
-        x: 16
-        y: 80
-        width: 16
-        height: 16
+        x: 182
+        y: 256
+        width: 9
+        height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f97af75d8eb65664aa0ba05aae0e3836
-      internalID: 1756242043
+      spriteID: d2e70f35fde86554f800a9b5bae579d6
+      internalID: -572827274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_18
+      name: dungeon_tiles_12
       rect:
         serializedVersion: 2
-        x: 32
-        y: 80
-        width: 16
+        x: 196
+        y: 259
+        width: 13
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d99872fdbcae64140906a1ac882adc1f
-      internalID: 407357018
+      spriteID: 59db708fdf6bd3643a54b9a3bbbc90c9
+      internalID: 49570536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_19
+      name: dungeon_tiles_13
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
-        width: 16
+        x: 288
+        y: 248
+        width: 32
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41269f80a1ac6324d90c0748939eebc0
-      internalID: -1697586202
+      spriteID: 643acbfcbae2d444ca944e3e6a395ebd
+      internalID: -1381666993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_20
+      name: dungeon_tiles_14
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 324
+        y: 248
         width: 16
-        height: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 061d5b71bdf5cfd43abdbe82a0074299
-      internalID: 244680486
+      spriteID: 569b46e968eb7204887f1f0678f7341a
+      internalID: -1410740400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_21
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: af017a91eefce864296845ced49acc2d
-      internalID: 176457067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_22
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1339816baa736a1498ec73805a283f0e
-      internalID: -69501345
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_23
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 80
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 261c5b7bd5d019745b2109dda92bf291
-      internalID: -75642004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_24
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 516489007aeccc54a8cf456eaefe8198
-      internalID: -416367538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_25
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 64
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8726abc17b8ac03448698ba3ff3a9817
-      internalID: 1589857476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_26
+      name: dungeon_tiles_15
       rect:
         serializedVersion: 2
         x: 32
-        y: 64
-        width: 16
-        height: 16
+        y: 228
+        width: 32
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f891074105b102c48b324dd6a5ebf08e
-      internalID: 1197299673
+      spriteID: 85487b5a6f746854fbf301071b4db4a8
+      internalID: 94108868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_27
+      name: dungeon_tiles_16
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
+        x: 68
+        y: 228
         width: 16
-        height: 16
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c33806347312ec4ca4660dcf6de795f
-      internalID: -1829790890
+      spriteID: bc5122c7e18b6fc4d87431c33753b004
+      internalID: -210616797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_28
+      name: dungeon_tiles_17
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 16
-        height: 16
+        x: 140
+        y: 237
+        width: 20
+        height: 15
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a4fcc74a7f58544aa1f6c2bb4ea2cda
-      internalID: 1094304669
+      spriteID: 711ab63b0e58b5c4fade31472d92f6ab
+      internalID: 839043762
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_29
+      name: dungeon_tiles_18
       rect:
         serializedVersion: 2
-        x: 80
-        y: 64
+        x: 165
+        y: 234
         width: 16
-        height: 16
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27ffe97dce64a4543b92695df60fff34
-      internalID: -1049744810
+      spriteID: 28dad04cbf5112d4b8977ac96d88aeef
+      internalID: -679459720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_30
+      name: dungeon_tiles_19
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 16
-        height: 16
+        x: 192
+        y: 233
+        width: 7
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cf1d85af30735243b6296e8008be868
-      internalID: 492807313
+      spriteID: f9a2550038bc8d849a68617cd8275a32
+      internalID: 2006778408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_31
+      name: dungeon_tiles_20
       rect:
         serializedVersion: 2
-        x: 112
-        y: 64
-        width: 16
+        x: 240
+        y: 228
+        width: 48
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 083b7e3a8ca4ae44a97d9c986140da1c
-      internalID: 1418539676
+      spriteID: 8321bdb0f63270545a923318b4fb4e52
+      internalID: -2104654115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e121529e86dd0cf49aaed810fa502e52
-      internalID: -657037924
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_33
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b9b487c79a6f2940a036b19875f6378
-      internalID: 1288447972
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_34
+      name: dungeon_tiles_21
       rect:
         serializedVersion: 2
         x: 32
-        y: 48
-        width: 16
-        height: 16
+        y: 176
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 493f514111c616d479351be0e96ac441
-      internalID: -1760361136
+      spriteID: 4ef0a9686d063a049b3f1bf1458701a9
+      internalID: -321188525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_35
+      name: dungeon_tiles_22
       rect:
         serializedVersion: 2
-        x: 48
-        y: 48
-        width: 16
-        height: 16
+        x: 88
+        y: 160
+        width: 48
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020d3d4c8bc36ca40810799ef2849d7d
-      internalID: 1826314359
+      spriteID: f703bb1b3efe8cc44ae61d6eb3cdf9d6
+      internalID: -188554017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_36
+      name: dungeon_tiles_23
       rect:
         serializedVersion: 2
-        x: 64
-        y: 48
+        x: 140
+        y: 176
         width: 16
-        height: 16
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 691fd806f9a4c9249bcc6bf884d5aa7e
-      internalID: 86951404
+      spriteID: ecfcc5cc0d9c242408ce29e47e6daf56
+      internalID: -973771791
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_37
+      name: dungeon_tiles_24
       rect:
         serializedVersion: 2
-        x: 80
-        y: 48
-        width: 16
-        height: 16
+        x: 167
+        y: 204
+        width: 23
+        height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8dd17971ffa1ade4b949668472088b44
-      internalID: -1143845273
+      spriteID: ae64a12438ac6f54faa6762bbc17d276
+      internalID: 1865064209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_38
+      name: dungeon_tiles_25
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
-        width: 16
-        height: 16
+        x: 196
+        y: 204
+        width: 17
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ba7a164d8141e248ae2b0905690e648
-      internalID: -698606670
+      spriteID: 4ecb2cc40d133c44091d0a53074835d2
+      internalID: -13413916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_39
+      name: dungeon_tiles_26
       rect:
         serializedVersion: 2
-        x: 112
-        y: 48
-        width: 16
-        height: 16
+        x: 217
+        y: 204
+        width: 17
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44ae15d19865a02459a07904af9cc0b2
-      internalID: 547816102
+      spriteID: ba0ab807b402b6d46b2d5a7f09d08ebc
+      internalID: -457221974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_40
+      name: dungeon_tiles_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
-        width: 16
-        height: 16
+        x: 244
+        y: 176
+        width: 48
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80e46becba007a842a3de9b4aabfbe3b
-      internalID: 559442731
+      spriteID: 0b969c0e4cead0c49b3b8951266130fe
+      internalID: 1627291291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_41
+      name: dungeon_tiles_28
       rect:
         serializedVersion: 2
-        x: 16
-        y: 32
+        x: 296
+        y: 195
         width: 16
-        height: 16
+        height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c7d7d4e8e68e24ebb2035ac53c79dd
-      internalID: 828553877
+      spriteID: dd440a59a173a134198dfb83ec4dde1c
+      internalID: -1327170928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_42
+      name: dungeon_tiles_29
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
+        x: 180
+        y: 182
+        width: 21
+        height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7302fba7d9d87346a501fd0d07031fa
-      internalID: -1833614115
+      spriteID: 7558f3ad35b3ae1489a8c2f0e0a74e3b
+      internalID: 1154009806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_43
+      name: dungeon_tiles_30
       rect:
         serializedVersion: 2
-        x: 48
-        y: 32
-        width: 16
-        height: 16
+        x: 206
+        y: 182
+        width: 17
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b82c4b9231febe044bca5e351e9c9199
-      internalID: 453947033
+      spriteID: d3381ffafe7624542a230a1162b84bdb
+      internalID: -249289846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_44
+      name: dungeon_tiles_31
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 296
+        y: 176
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de61f9a402311444d978282d3c48e5a2
-      internalID: -73276117
+      spriteID: f00b2b8117ef98448844787ecd1c826a
+      internalID: -9830202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_45
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7dfcae1916a17e6468e7dca068cf86b6
-      internalID: -1266969166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_46
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91c05d5854afaa647877c923ff10ca9f
-      internalID: -1374331356
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_47
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d4436c549d60f0a419386e06af25fb34
-      internalID: -1435383145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_48
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1393b4f64834f54f92411968c854404
-      internalID: -427993638
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_49
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26370f3a3784aa247ad3dd06c0ad0918
-      internalID: -1413356890
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_50
+      name: dungeon_tiles_32
       rect:
         serializedVersion: 2
         x: 32
-        y: 16
-        width: 16
-        height: 16
+        y: 140
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4c00702547937648a5db0b36ce53521
-      internalID: -381489086
+      spriteID: c8f43dd4bce088e448661e675a9f37d8
+      internalID: 794899974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_51
+      name: dungeon_tiles_33
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
+        x: 68
+        y: 140
         width: 16
-        height: 16
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3e77ad443f4b7148b64e5788adb5a1d
-      internalID: -1986620651
+      spriteID: f9cfca32f16f39349ad43b673e33dcd9
+      internalID: 246987602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_52
+      name: dungeon_tiles_34
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
-        width: 16
+        x: 140
+        y: 156
+        width: 48
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f936d7cdc4ff2b43865c3860f5b25a6
-      internalID: -2097961976
+      spriteID: 0801517108c6aa44087aa2df79b3936b
+      internalID: -586191849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_53
+      name: dungeon_tiles_35
       rect:
         serializedVersion: 2
-        x: 80
-        y: 16
+        x: 192
+        y: 156
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58faca1202d50944eaa26bf8b4f74789
-      internalID: 983988524
+      spriteID: 0a2eaf8ca580fbb41a996d57d9db9012
+      internalID: 28400746
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_54
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 10b2b18c38f24a646b584b94ef4ee8fe
-      internalID: 1927425534
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_55
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 43f81228c3b8f3c4dab1efe65c9b1a2f
-      internalID: 504545620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_56
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 84d3408e361d3e546ad874bf3ce8ae03
-      internalID: -583622122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_57
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e7645e0b11566d45b9c13b380cd6ac8
-      internalID: 1445251271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightblue_bricks_58
+      name: dungeon_tiles_36
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
-        width: 16
-        height: 16
+        y: 68
+        width: 48
+        height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af731c76ca6bdd74ea461e8fedebbd19
-      internalID: 827999958
+      spriteID: bead761cdc429f54b81cb22a387f6685
+      internalID: -1738270210
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_59
+      name: dungeon_tiles_37
       rect:
         serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
+        x: 88
+        y: 52
+        width: 48
+        height: 72
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75267f8f80069944287a5dba9565166e
-      internalID: 866049816
+      spriteID: ab679d01210bd204f96d37f70099ffc6
+      internalID: 1586678259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_60
+      name: dungeon_tiles_38
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
+        x: 140
+        y: 68
         width: 16
-        height: 16
+        height: 56
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9dd65e09a5d61a4f938bb6f9a4cf87b
-      internalID: 1067330405
+      spriteID: 19e53cf24663f1043a4744f8dac14b6b
+      internalID: 1423876643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_61
+      name: dungeon_tiles_39
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
+        x: 32
+        y: 24
+        width: 32
+        height: 40
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6a6a376f9035394e88784589be8d294
-      internalID: 1564976390
+      spriteID: 4dd70b9168b63094f806c4f948944533
+      internalID: -83379243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_62
+      name: dungeon_tiles_40
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 24
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7964bb129879f4449e4245936d2a533
+      internalID: 47737596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonTopLeft
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8662fa25558a6e4e83d59915f785ebb
+      internalID: -1916250368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonLeftWall1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 302ef5bd7d4b3e54289407a8aa304d14
+      internalID: -1012090848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomBottomLeft
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 256
+        width: 16
+        height: 16
+      alignment: 9
+      pivot: {x: 0.4536903, y: -0.2100792}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00789e187c056c64480e725895f1bc0e
+      internalID: -586749878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomBottomRight
       rect:
         serializedVersion: 2
         x: 96
-        y: 0
+        y: 256
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d365d1b4f7df1194ab33dca38f342e49
-      internalID: 815102716
+      spriteID: 89269df945c38294093c44b689490faf
+      internalID: -995479324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightblue_bricks_63
+      name: DungeonFloor1
       rect:
         serializedVersion: 2
-        x: 112
-        y: 0
+        x: 48
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5e1b0ece586612449b18d084d0e19fa
+      internalID: 1291551441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonFloor2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad7982b5e656ba479af1d9a9ff4252a
+      internalID: 1882852008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonLeftWall2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69988ff07f125543af97504645ea573
+      internalID: 20366959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonLeftWall3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14c1755eaa7c4d5479863df94aab9dab
+      internalID: -584825704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonTopWall1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83488d14fa7d9e04a81fab409989c9cc
+      internalID: -37283564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonTopWall2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd4aef182db75d41b18f8cfdf158023
+      internalID: -1175345877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonTopWall3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 336
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 356cadaead9a6594ab823489b810ef28
+      internalID: -1092571108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonRightWall1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0b4d1f6cb14724e8fe93cc4c18d565
+      internalID: 1393927938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonRightWall2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf61c4270b2316e44bf13781c29f2f07
+      internalID: 1688253620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonRightWall3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858eceaec07cfde42889062b71c00f43
+      internalID: 454172729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomWall1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb733c691d1e9b4493bb75e5b916d09
+      internalID: -435284409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomWall2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 060200b793d65954790b276357b78161
+      internalID: -1260435553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomWall3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 256
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c75ee61bd9ce8184a991b1bad8b52769
+      internalID: 1393290966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_tiles_0
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 300
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c2acb8c46c331478615c33fc42c2d0
+      internalID: 965892888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonLeftDeadEnd
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c35b7648d8475a45ab6fe9542e43adc
+      internalID: 866705152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonRightDeadEnd
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 240
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae995739eb1a6234ab89729d065eb2ae
+      internalID: -1318409346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomLeftTile
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 272
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cbf31cfc412d14c886a016147e8e9c
+      internalID: -1300769316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DungeonBottomRight
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 272
         width: 16
         height: 16
       alignment: 0
@@ -1441,8 +1420,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 885ae1d436c2cc44f9613c2f0e7dba55
-      internalID: -1822837968
+      spriteID: 1f1c50357b299d54da9898410f0e1ebd
+      internalID: 1780221459
       vertices: []
       indices: 
       edges: []
@@ -1458,70 +1437,69 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lightblue_bricks_14: 464514506
-      lightblue_bricks_23: -75642004
-      lightblue_bricks_37: -1143845273
-      lightblue_bricks_0: -1459298261
-      lightblue_bricks_59: 866049816
-      lightblue_bricks_32: -657037924
-      lightblue_bricks_62: 815102716
-      lightblue_bricks_29: -1049744810
-      lightblue_bricks_46: -1374331356
-      lightblue_bricks_31: 1418539676
-      lightblue_bricks_54: 1927425534
-      lightblue_bricks_7: -238664166
-      lightblue_bricks_33: 1288447972
-      lightblue_bricks_60: 1067330405
-      lightblue_bricks_61: 1564976390
-      lightblue_bricks_1: -1338555812
-      lightblue_bricks_55: 504545620
-      lightblue_bricks_48: -427993638
-      lightblue_bricks_27: -1829790890
-      lightblue_bricks_26: 1197299673
-      lightblue_bricks_6: -1809630465
-      lightblue_bricks_21: 176457067
-      lightblue_bricks_2: 1656791578
-      lightblue_bricks_40: 559442731
-      lightblue_bricks_58: 827999958
-      lightblue_bricks_57: 1445251271
-      lightblue_bricks_9: 1813568719
-      lightblue_bricks_47: -1435383145
-      lightblue_bricks_13: -685112650
-      lightblue_bricks_11: -1925860743
-      lightblue_bricks_3: 1664013066
-      lightblue_bricks_15: 1421333547
-      lightblue_bricks_16: -1771420017
-      lightblue_bricks_12: 938999728
-      lightblue_bricks_39: 547816102
-      lightblue_bricks_44: -73276117
-      lightblue_bricks_53: 983988524
-      lightblue_bricks_36: 86951404
-      lightblue_bricks_10: -1196050406
-      lightblue_bricks_22: -69501345
-      lightblue_bricks_43: 453947033
-      lightblue_bricks_45: -1266969166
-      lightblue_bricks_30: 492807313
-      lightblue_bricks_49: -1413356890
-      lightblue_bricks_35: 1826314359
-      lightblue_bricks_20: 244680486
-      lightblue_bricks_50: -381489086
-      lightblue_bricks_4: 956656033
-      lightblue_bricks_42: -1833614115
-      lightblue_bricks_17: 1756242043
-      lightblue_bricks_18: 407357018
-      lightblue_bricks_19: -1697586202
-      lightblue_bricks_28: 1094304669
-      lightblue_bricks_51: -1986620651
-      lightblue_bricks_41: 828553877
-      lightblue_bricks_63: -1822837968
-      lightblue_bricks_52: -2097961976
-      lightblue_bricks_24: -416367538
-      lightblue_bricks_34: -1760361136
-      lightblue_bricks_38: -698606670
-      lightblue_bricks_56: -583622122
-      lightblue_bricks_25: 1589857476
-      lightblue_bricks_5: 1949073642
-      lightblue_bricks_8: 525658476
+      dungeon_tiles_23: -973771791
+      dungeon_tiles_33: 246987602
+      dungeon_tiles_21: -321188525
+      dungeon_tiles_11: -572827274
+      dungeon_tiles_19: 2006778408
+      dungeon_tiles_36: -1738270210
+      dungeon_tiles_24: 1865064209
+      dungeon_tiles_39: -83379243
+      dungeon_tiles_20: -2104654115
+      dungeon_tiles_25: -13413916
+      dungeon_tiles_28: -1327170928
+      dungeon_tiles_40: 47737596
+      DungeonRightWall2: 1688253620
+      DungeonBottomBottomLeft: -586749878
+      DungeonLeftWall1: -1012090848
+      dungeon_tiles_4: 698941127
+      DungeonLeftDeadEnd: 866705152
+      DungeonLeftWall2: 20366959
+      DungeonTopWall2: -1175345877
+      dungeon_tiles_38: 1423876643
+      dungeon_tiles_13: -1381666993
+      dungeon_tiles_34: -586191849
+      DungeonLeftWall3: -584825704
+      dungeon_tiles_16: -210616797
+      DungeonBottomLeftTile: -1300769316
+      DungeonBottomBottomRight: -995479324
+      dungeon_tiles_30: -249289846
+      dungeon_tiles_37: 1586678259
+      dungeon_tiles_5: 1970085048
+      DungeonBottomWall1: -435284409
+      dungeon_tiles_9: -1703668908
+      dungeon_tiles_7: -1078011783
+      dungeon_tiles_17: 839043762
+      DungeonTopWall1: -37283564
+      dungeon_tiles_2: -2115758618
+      dungeon_tiles_15: 94108868
+      dungeon_tiles_14: -1410740400
+      dungeon_tiles_29: 1154009806
+      dungeon_tiles_18: -679459720
+      DungeonBottomWall3: 1393290966
+      dungeon_tiles_27: 1627291291
+      dungeon_tiles_26: -457221974
+      dungeon_tiles_3: 1972858391
+      dungeon_tiles_6: 1857031371
+      DungeonTopLeft: -1916250368
+      DungeonFloor1: 1291551441
+      dungeon_tiles_1: 961137836
+      DungeonRightWall1: 1393927938
+      dungeon_tiles_8: 1423521162
+      dungeon_tiles_10: -1601114012
+      dungeon_tiles_31: -9830202
+      DungeonTopWall3: -1092571108
+      dungeon_tiles_35: 28400746
+      dungeon_tiles_22: -188554017
+      DungeonRightWall3: 454172729
+      DungeonBottomWall2: -1260435553
+      dungeon_tiles_32: 794899974
+      DungeonBottomRight: 1780221459
+      dungeon_tiles_12: 49570536
+      dungeon_tiles_0: 965892888
+      DungeonRightDeadEnd: -1318409346
+      DungeonTopRight: 91487423
+      DungeonFloor2: 1882852008
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
