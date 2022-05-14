@@ -94,7 +94,7 @@ namespace Might.MapGeneration
             set => obstacleTilemap = value;
         }
  
-
+        
         void Start()
         {
             Generation();
@@ -104,8 +104,8 @@ namespace Might.MapGeneration
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {            
-                Generation();
-            }
+                Generation();               
+            }         
         }
 
         public void Generation()
@@ -116,8 +116,8 @@ namespace Might.MapGeneration
             #endregion
 
             #region Clear entities
-            ClearPlayer();
-            ClearEnemy();
+            //ClearPlayer();
+            //ClearEnemy();
             #endregion
 
             #region Randomize seed
@@ -152,8 +152,7 @@ namespace Might.MapGeneration
             #endregion
 
             OnGenerationEndedCallback?.Invoke();
-       
-            SpawnEnemy();         
+
         }        
 
         
@@ -173,30 +172,6 @@ namespace Might.MapGeneration
                 DestroyImmediate(enemy);
             }
         }
-        public void SpawnEnemy()
-        {
-            MapProcessor mapProcessor = GetComponent<MapProcessor>();
-            NeighbourTilesTracker tracker = GetComponent<NeighbourTilesTracker>();
-
-            for (int x = Width - 1; x >= 0 ; x--)
-            {
-                for (int y = 0; y < Height; y++)
-                {
-                    if(Map[x,y] == 2)
-                    {
-                        List<Coord> region = mapProcessor.GetRegionTiles(Map,x, y); ;
-                        int caveCount = tracker.GetSurroundingCaveCount(x, y);
-                        if(caveCount >= 8)
-                        {
-                        
-                            Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
-                            return;
-                        }
-                        //72 -> width 40-> height 39->fill percent 100 -> cave minomum size
-                    }
-                }
-            }
-           
-        }
+        
     }
 }
