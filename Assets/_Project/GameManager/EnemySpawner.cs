@@ -21,7 +21,7 @@ namespace Might.GameManager
 
         private void HandleGenerationEnd()
         {
-            //SpawnEnemy();
+            SpawnEnemy();
         }
 
         private void OnDisable()
@@ -47,8 +47,8 @@ namespace Might.GameManager
                         if (caveCount >= 8)
                         {
 
-                            Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
-                            OnEnemySpawnedCallback?.Invoke(transform);
+                            GameObject enemy = Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                            OnEnemySpawnedCallback?.Invoke(enemy.transform);
                             return;
                         }
                         //72 -> width 40-> height 39->fill percent 100 -> cave minomum size

@@ -7,37 +7,37 @@ namespace Might.GameManager
 {
     public class EnemyTargetSetter : MonoBehaviour
     {
-        [SerializeField] private Transform target;
+        [SerializeField] private Transform enemyTarget;
 
         private void OnEnable()
         {
-            PlayerStorer.OnPlayerStoredCallback += ReceiveTargetInfo;
-            //EnemySpawner.OnEnemySpawnedCallback += SetTargetOfEnemy;
+            PlayerStorer.OnPlayerStoredCallback += ReceiveEnemyTargetInfo;
+            EnemySpawner.OnEnemySpawnedCallback += SetEnemyTarget;
         }
 
         private void OnDisable()
         {
-            PlayerStorer.OnPlayerStoredCallback -= ReceiveTargetInfo;
-            //EnemySpawner.OnEnemySpawnedCallback -= SetTargetOfEnemy;
+            PlayerStorer.OnPlayerStoredCallback -= ReceiveEnemyTargetInfo;
+            EnemySpawner.OnEnemySpawnedCallback -= SetEnemyTarget;
         }
 
-        public void ReceiveTargetInfo(Transform target)
+        public void ReceiveEnemyTargetInfo(Transform target)
         {
-            this.target = target;
+            enemyTarget = target;
+            Debug.Log(enemyTarget.name);
         }
 
-       /* public void SetTargetOfEnemy(Transform enemy)
+        public void SetEnemyTarget(Transform enemy)
         {
-            StartCoroutine("DelayTargetSetOfEnemy", enemy);
+            StartCoroutine("DelaySetEnemyTarget", enemy);          
         }
 
-        public IEnumerator DelayTargetSetOfEnemy(Transform enemy)
+        public IEnumerator DelaySetEnemyTarget(Transform enemy)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
             AIDestinationSetter enemyAI = enemy.GetComponent<AIDestinationSetter>();
-            enemyAI.target = target;
-        }*/
-
-        
+            enemyAI.target = enemyTarget;
+        }
+       
     }
 }

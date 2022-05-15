@@ -26,7 +26,7 @@ namespace Might.GameManager
 
         private void HandleGenerationEnd()
         {
-            //SpawnPlayer();       
+            SpawnPlayer();       
         }
 
         public void SpawnPlayer()

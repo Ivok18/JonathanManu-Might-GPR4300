@@ -13,7 +13,7 @@ namespace Might.Pathfinding
 
         private void ScanMap()
         {
-            StartCoroutine("DelayScan", 0.05f);
+            StartCoroutine("DelayScan", 0.01f);
         }
 
         private void OnDisable()
