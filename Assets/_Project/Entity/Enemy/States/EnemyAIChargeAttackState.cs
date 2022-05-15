@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Might.Entity.Enemy.States
 {
-    public class ChargeAttackState : MonoBehaviour
+    public class EnemyAIChargeAttackState : MonoBehaviour
     {
         [SerializeField] private float timeBetweenAttacks;
         [SerializeField] private float timeUntilNextAttack;
@@ -32,7 +32,14 @@ namespace Might.Entity.Enemy.States
         {
             if(newState == EnemyState.ChargingAttack)
             {
+                #region Get enemy AI
+                AIPath enemyAI = GetComponent<AIPath>();
+                #endregion
+                //Enable aim by disabling AStar AI rotation
+                enemyAI.enableRotation = false;
+
                 timeUntilNextAttack = timeBetweenAttacks;
+
             }
         }
 
@@ -43,6 +50,10 @@ namespace Might.Entity.Enemy.States
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.ChargingAttack) return;
 
+            //Make sure the sword rotation is 0 when enemy not attacking
+            EnemyAIAttackState attackState = GetComponent<EnemyAIAttackState>();
+            attackState.SetSwordRotation(0);
+    
             #region Get enemy AI
             AIPath enemyAI = GetComponent<AIPath>();
             #endregion 
