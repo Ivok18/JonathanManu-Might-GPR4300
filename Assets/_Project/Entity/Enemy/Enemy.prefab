@@ -503,9 +503,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 8
+  slowdownDistance: 6
   pickNextWaypointDist: 2
-  endReachedDistance: 8
+  endReachedDistance: 6
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 1
@@ -646,7 +646,8 @@ MonoBehaviour:
   attackWarningSprite: {fileID: 4843856593798556247}
   startScale: {x: 0, y: 0, z: 0}
   timeForActivation: 0.5
-  animActivationRange: 30
+  animActivationRange: 8
+  animationEndScale: 0.9
 --- !u!1 &8394633958460757884
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,5 +22,15 @@ namespace Might.Entity.Enemy
 
             OnEnemyStateSwitched?.Invoke(newState);
         }
+
+        public IEnumerator SwitchToStateWithDelay(EnemyState newState)
+        {
+            yield return new WaitForSeconds(0.4f);
+
+            enemyStateTracker.CurrentState = newState;
+
+            OnEnemyStateSwitched?.Invoke(newState);
+        }
+
     }
 }
