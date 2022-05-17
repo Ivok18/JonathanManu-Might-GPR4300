@@ -26,7 +26,7 @@ namespace Might.Entity.Player.States
 
         private void OnEnable()
         {
-            PlayerStateSwitcher.OnStateSwitchedCallback += HandleStateSwitch;
+            PlayerStateSwitcher.OnPlayerStateSwitched += HandleStateSwitch;
         }
 
         private void HandleStateSwitch(PlayerState newState)
@@ -48,7 +48,7 @@ namespace Might.Entity.Player.States
 
         private void OnDisable()
         {
-            PlayerStateSwitcher.OnStateSwitchedCallback -= HandleStateSwitch;
+            PlayerStateSwitcher.OnPlayerStateSwitched -= HandleStateSwitch;
         }
 
         void Update()

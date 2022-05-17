@@ -7,8 +7,8 @@ namespace Might.Entity.Player
     {
         private PlayerStateTracker playerStateTracker;
 
-        public delegate void StateSwitchedCallback(PlayerState state);
-        public static event StateSwitchedCallback OnStateSwitchedCallback;
+        public delegate void PlayerStateSwitched(PlayerState state);
+        public static event PlayerStateSwitched OnPlayerStateSwitched;
 
         private void Awake()
         {
@@ -19,7 +19,7 @@ namespace Might.Entity.Player
         {
             playerStateTracker.CurrentState = newState;
 
-            OnStateSwitchedCallback?.Invoke(newState);
+            OnPlayerStateSwitched?.Invoke(newState);
         }
     }
 }

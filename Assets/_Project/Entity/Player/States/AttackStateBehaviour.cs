@@ -35,9 +35,9 @@ namespace Might.Entity.Player.States
 
         private void OnEnable()
         {
-            PlayerStateSwitcher.OnStateSwitchedCallback += HandleStateSwitch;
+            PlayerStateSwitcher.OnPlayerStateSwitched += HandlePlayerStateSwitched;
         }
-        private void HandleStateSwitch(PlayerState newState)
+        private void HandlePlayerStateSwitched(PlayerState newState)
         {
             if (newState == PlayerState.Attacking)
             {
@@ -60,7 +60,7 @@ namespace Might.Entity.Player.States
 
         private void OnDisable()
         {
-            PlayerStateSwitcher.OnStateSwitchedCallback -= HandleStateSwitch;
+            PlayerStateSwitcher.OnPlayerStateSwitched -= HandlePlayerStateSwitched;
         }
 
         void Update()
