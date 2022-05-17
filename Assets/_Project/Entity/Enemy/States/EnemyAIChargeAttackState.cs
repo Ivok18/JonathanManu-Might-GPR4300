@@ -11,7 +11,7 @@ namespace Might.Entity.Enemy.States
         [SerializeField] private float timeBetweenAttacks;
         public float timeUntilNextAttack;
 
-        
+       
 
         private void OnEnable()
         {

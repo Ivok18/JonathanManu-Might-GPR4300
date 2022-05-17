@@ -9,6 +9,12 @@ namespace Might.Entity.Enemy.States
         [SerializeField] private float stopDistance;
         private AIPath enemyAI;
 
+        public float StopDistance
+        {
+            get => stopDistance;
+            set => stopDistance = value;
+        }
+
         private void Awake()
         {
             enemyAI = GetComponent<AIPath>();
@@ -62,11 +68,11 @@ namespace Might.Entity.Enemy.States
             attackState.SetSwordRotation(0);
 
             if (enemyAI.reachedDestination)
-            {             
-                 #region Get enemy state switcher
+            {
+                #region Get enemy state switcher
                  EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                  #endregion
-                 enemyStateSwitcher.SwitchToState(EnemyState.Attacking);
+                enemyStateSwitcher.SwitchToState(EnemyState.Attacking);
             }
         }
     }

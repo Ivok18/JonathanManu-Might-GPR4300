@@ -643,8 +643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55e267775e811fc40b003ecfb0599aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForActivation: 0.5
   attackWarningSprite: {fileID: 4843856593798556247}
+  startScale: {x: 0, y: 0, z: 0}
+  timeForActivation: 0.5
+  animActivationRange: 30
 --- !u!1 &8394633958460757884
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,7 +813,7 @@ Transform:
   m_GameObject: {fileID: 9021235317659303775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8458939306321107421}
