@@ -382,8 +382,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 994574649533923349}
-  - component: {fileID: 5555121867291920262}
-  - component: {fileID: 8122093521390146451}
+  - component: {fileID: 1794544763655147233}
+  - component: {fileID: 1262689857101566405}
   - component: {fileID: 1459155099}
   - component: {fileID: 1459155100}
   - component: {fileID: 1459155103}
@@ -421,7 +421,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &5555121867291920262
+--- !u!50 &1794544763655147233
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -435,14 +435,14 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 0.0001
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &8122093521390146451
+--- !u!61 &1262689857101566405
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -503,9 +503,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 8
+  slowdownDistance: 6
   pickNextWaypointDist: 2
-  endReachedDistance: 8
+  endReachedDistance: 6
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 1
@@ -646,7 +646,8 @@ MonoBehaviour:
   attackWarningSprite: {fileID: 4843856593798556247}
   startScale: {x: 0, y: 0, z: 0}
   timeForActivation: 0.5
-  animActivationRange: 30
+  animActivationRange: 8
+  animationEndScale: 0.9
 --- !u!1 &8394633958460757884
 GameObject:
   m_ObjectHideFlags: 0

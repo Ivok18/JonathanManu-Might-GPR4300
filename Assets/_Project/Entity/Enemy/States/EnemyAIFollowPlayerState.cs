@@ -48,6 +48,7 @@ namespace Might.Entity.Enemy.States
 
         private void Update()
         {
+            //Prevent the enemy from moving when it is near the player
             if(enemyAI.remainingDistance <= stopDistance)
             {
                 enemyAI.canMove = false;
@@ -63,8 +64,11 @@ namespace Might.Entity.Enemy.States
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.FollowingPlayer) return;
 
-            //Make sure the sword rotation is 0 when enemy not attacking
+         
+            #region Get enemy attack script
             EnemyAIAttackState attackState = GetComponent<EnemyAIAttackState>();
+            #endregion
+            //Make sure the sword is pointing straight forward when enemy not attacking
             attackState.SetSwordRotation(0);
 
             if (enemyAI.reachedDestination)

@@ -44,11 +44,10 @@ namespace Might.Entity.Player.States
                 //Desactivate player shield
                 DefendStateBehaviour defendStateBehaviour = GetComponent<DefendStateBehaviour>();
                 defendStateBehaviour.DesactivateShield();
-   
 
                 //Allow player to move
-                PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-                playerMovement.RestoreMovement();
+                //PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+                //playerMovement.RestoreMovement();
 
                 //Draw player sword
                 DrawSword();
@@ -81,7 +80,7 @@ namespace Might.Entity.Player.States
             }             
             else
             {
-                //Trigger attack when left mouse is pressed
+                //Trigger attack when left mouse click
                 if (Input.GetMouseButtonDown(0))
                 {
                     //Ensure cps limit

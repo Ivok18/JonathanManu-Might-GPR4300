@@ -11,18 +11,16 @@ namespace Might.Entity.Enemy
         [SerializeField] private Vector3 startScale;
         [SerializeField] private float timeForActivation;
         [SerializeField] private float animActivationRange;
+        [SerializeField] private float animationEndScale;
         private EnemyAIChargeAttackState enemyAIChargeAttack;
         private Sequence attackWarningAnimation;
        
-       
-
         public SpriteRenderer AttackWarningSprite
         {
             get => attackWarningSprite;
             set => attackWarningSprite = value;
         }
-
-        
+       
 
         private void Awake()
         {
@@ -31,38 +29,24 @@ namespace Might.Entity.Enemy
 
         private void Start()
         {
-            //Create Or Show animation 
-            Tweener attackWarningSet = attackWarningSprite.transform.parent.DOScale(0.9f, 0.2f);
-            attackWarningSet.ChangeStartValue(startScale);
-            attackWarningAnimation = DOTween.Sequence(attackWarningSprite.transform.parent);
-            attackWarningAnimation.Append(attackWarningSet);
-            attackWarningAnimation.SetLoops(-1, LoopType.Yoyo);
+            CreateOrContinueWarningAnimation();
         }
+     
 
         void Update()
         {
             #region Get enemy state tracker
             EnemyStateTracker enemyStateTracker = GetComponent<EnemyStateTracker>();
             #endregion
-            if (enemyStateTracker.CurrentState == EnemyState.ChargingAttack ||
-                enemyStateTracker.CurrentState == EnemyState.Attacking)
+            //Check current enemy state
+            if (enemyStateTracker.CurrentState == EnemyState.ChargingAttack)
             {
-
-                #region Get enemy AI path
-                AIPath enemyAI = GetComponent<AIPath>();
-                #endregion
-                #region Get enemy stop distance
-                EnemyAIFollowPlayerState followPlayerState;
-                followPlayerState = GetComponent<EnemyAIFollowPlayerState>();
-                float stopDistance = followPlayerState.StopDistance;
-                #endregion
-                if (enemyAIChargeAttack.timeUntilNextAttack <= timeForActivation ||
-                    enemyAI.remainingDistance > stopDistance &&
-                    enemyAI.remainingDistance < stopDistance + animActivationRange
-                    )
+                //Make sure we can show animation or not
+                if (enemyAIChargeAttack.timeUntilNextAttack <= timeForActivation) 
                 {
                     attackWarningSprite.enabled = true;
                 }
+                
             }
 
 
@@ -76,13 +60,27 @@ namespace Might.Entity.Enemy
                 followPlayerState = GetComponent<EnemyAIFollowPlayerState>();
                 float stopDistance = followPlayerState.StopDistance;
                 #endregion
+                //Make sure we can show animation or not
                 if (enemyAI.remainingDistance > stopDistance + animActivationRange)
                 {
-                    Debug.Log("nani");
                     attackWarningSprite.enabled = false;
+                }
+                else if(enemyAI.remainingDistance >= stopDistance &&
+                enemyAI.remainingDistance < stopDistance + animActivationRange)
+                {
+                    attackWarningSprite.enabled = true;
                 }
                 
             }
+        }
+
+        private void CreateOrContinueWarningAnimation()
+        {
+            Tweener attackWarningSet = attackWarningSprite.transform.parent.DOScale(animationEndScale, 0.2f);
+            attackWarningSet.ChangeStartValue(startScale);
+            attackWarningAnimation = DOTween.Sequence(attackWarningSprite.transform.parent);
+            attackWarningAnimation.Append(attackWarningSet);
+            attackWarningAnimation.SetLoops(-1, LoopType.Yoyo);
         }
 
     }

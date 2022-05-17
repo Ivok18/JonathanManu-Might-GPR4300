@@ -32,11 +32,19 @@ namespace Might.Entity.Enemy.States
         {
             if(newState == EnemyState.ChargingAttack)
             {
+             
                 #region Get enemy AI
                 AIPath enemyAI = GetComponent<AIPath>();
                 #endregion
                 //Enable aim by disabling AStar AI rotation
                 enemyAI.enableRotation = false;
+
+                #region Get attack warning 
+                EnemyAttackWarningBehaviour attackWarning;
+                attackWarning = GetComponent<EnemyAttackWarningBehaviour>();
+                #endregion
+                //Desactivate attack warning
+                attackWarning.AttackWarningSprite.enabled = false;
 
                 timeUntilNextAttack = timeBetweenAttacks;
 
@@ -50,8 +58,10 @@ namespace Might.Entity.Enemy.States
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.ChargingAttack) return;
 
-            //Make sure the sword rotation is 0 when enemy not attacking
+            #region Get enemy attack script
             EnemyAIAttackState attackState = GetComponent<EnemyAIAttackState>();
+            #endregion
+            //Make sure the sword points straight forward when enemy not attacking
             attackState.SetSwordRotation(0);
     
             #region Get enemy AI
@@ -70,16 +80,12 @@ namespace Might.Entity.Enemy.States
                 }
             }
             else
-            {
+            {         
                 #region Get enemy state switcher
                 EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                 #endregion
                 enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
             }
-
-
-
-
         }
     }
 }
