@@ -78,7 +78,7 @@ namespace Might.Entity.Player.States
             //Enable game object
             Shield.gameObject.SetActive(true);
 
-            //Show animation
+            //Create Or Show animation 
             Tweener shieldAnimSet = Shield.DOScale(0.9f, 0.2f);
             shieldAnimSet.ChangeStartValue(startScale);
             shieldAnimation = DOTween.Sequence(Shield);

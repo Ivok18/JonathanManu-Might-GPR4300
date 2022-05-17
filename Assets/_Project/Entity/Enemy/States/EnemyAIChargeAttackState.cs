@@ -9,9 +9,9 @@ namespace Might.Entity.Enemy.States
     public class EnemyAIChargeAttackState : MonoBehaviour
     {
         [SerializeField] private float timeBetweenAttacks;
-        [SerializeField] private float timeUntilNextAttack;
+        public float timeUntilNextAttack;
 
-     
+       
 
         private void OnEnable()
         {

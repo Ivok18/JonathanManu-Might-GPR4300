@@ -6,7 +6,14 @@ namespace Might.Entity.Enemy.States
 {
     public class EnemyAIFollowPlayerState : MonoBehaviour
     {
+        [SerializeField] private float stopDistance;
         private AIPath enemyAI;
+
+        public float StopDistance
+        {
+            get => stopDistance;
+            set => stopDistance = value;
+        }
 
         private void Awake()
         {
@@ -41,6 +48,16 @@ namespace Might.Entity.Enemy.States
 
         private void Update()
         {
+            if(enemyAI.remainingDistance <= stopDistance)
+            {
+                enemyAI.canMove = false;
+            }
+            else
+            {
+                enemyAI.canMove = true;
+            }
+
+
             #region Get enemy state tracker
             EnemyStateTracker enemyStateTracker = GetComponent<EnemyStateTracker>();
             #endregion
@@ -51,11 +68,11 @@ namespace Might.Entity.Enemy.States
             attackState.SetSwordRotation(0);
 
             if (enemyAI.reachedDestination)
-            {             
-                 #region Get enemy state switcher
+            {
+                #region Get enemy state switcher
                  EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                  #endregion
-                 enemyStateSwitcher.SwitchToState(EnemyState.Attacking);
+                enemyStateSwitcher.SwitchToState(EnemyState.Attacking);
             }
         }
     }
