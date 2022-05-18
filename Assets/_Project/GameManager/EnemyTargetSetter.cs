@@ -24,7 +24,7 @@ namespace Might.GameManager
         public void ReceiveEnemyTargetInfo(Transform target)
         {
             enemyTarget = target;
-            Debug.Log(enemyTarget.name);
+            //Debug.Log(enemyTarget.name);
         }
 
         public void SetEnemyTarget(Transform enemy)
