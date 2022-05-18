@@ -1,13 +1,14 @@
-using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Might.Entity.Enemy
+namespace Might.Entity.Player
 {
-    public class EnemyHealth : MonoBehaviour
+    public class PlayerHealth : MonoBehaviour
     {
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
-        
+
         private void Start()
         {
             currentHealth = maxHealth;
@@ -24,7 +25,5 @@ namespace Might.Entity.Enemy
             receiveDamageAnim.StartAnim();
 
         }
-
-            
     }
 }
