@@ -116,8 +116,8 @@ namespace Might.MapGeneration
             #endregion
 
             #region Clear entities
-            ClearPlayer();
-            ClearEnemy();
+            //ClearPlayer();
+            //ClearEnemy();
             #endregion
 
             #region Randomize seed

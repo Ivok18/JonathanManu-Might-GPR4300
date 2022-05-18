@@ -21,7 +21,7 @@ namespace Might.GameManager
 
         private void HandleGenerationEnd()
         {
-            SpawnEnemy();
+            //SpawnEnemy();
         }
 
         private void OnDisable()

@@ -6,14 +6,14 @@ namespace Might.Entity.Enemy.States
 {
     public class EnemyAIFollowPlayerState : MonoBehaviour
     {
-        [SerializeField] private float stopDistance;
+        //[SerializeField] private float stopDistance;
         private AIPath enemyAI;
 
-        public float StopDistance
+       /* public float StopDistance
         {
             get => stopDistance;
             set => stopDistance = value;
-        }
+        }*/
 
         private void Awake()
         {
@@ -48,23 +48,12 @@ namespace Might.Entity.Enemy.States
 
         private void Update()
         {
-            //Prevent the enemy from moving when it is near the player
-            if(enemyAI.remainingDistance <= stopDistance)
-            {
-                enemyAI.canMove = false;
-            }
-            else
-            {
-                enemyAI.canMove = true;
-            }
-
-
+           
             #region Get enemy state tracker
             EnemyStateTracker enemyStateTracker = GetComponent<EnemyStateTracker>();
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.FollowingPlayer) return;
 
-         
             #region Get enemy attack script
             EnemyAIAttackState attackState = GetComponent<EnemyAIAttackState>();
             #endregion
@@ -74,10 +63,14 @@ namespace Might.Entity.Enemy.States
             if (enemyAI.reachedDestination)
             {
                 #region Get enemy state switcher
-                 EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
-                 #endregion
-                enemyStateSwitcher.SwitchToState(EnemyState.Attacking);
+                EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
+                #endregion
+                enemyStateSwitcher.SwitchToState(EnemyState.Attacking);      //maybe add delay
+
             }
+
+           
+
         }
     }
 }
