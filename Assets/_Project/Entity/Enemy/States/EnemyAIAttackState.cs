@@ -55,7 +55,7 @@ namespace Might.Entity.Enemy.States
                 //I do this because I need a certain behaviour that I cannot handle with Astar
                 enemyAI.enableRotation = false;
 
-                //I put the enemy sword in a certain before it starts attacking
+                //I put the enemy sword in a certain angle before it starts attacking
                 SetSwordRotation(SwordStartRotation);
                 
             }
@@ -92,7 +92,7 @@ namespace Might.Entity.Enemy.States
                     #region Get enemy state switcher
                     EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                     #endregion
-                    StartCoroutine(enemyStateSwitcher.SwitchToStateWithDelay(EnemyState.ChargingAttack));
+                    StartCoroutine(enemyStateSwitcher.SwitchToStateWithDelay(EnemyState.ChargingAttack, 0.4f));
                    
                 }
                 else

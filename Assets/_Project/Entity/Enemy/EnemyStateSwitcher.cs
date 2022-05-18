@@ -23,9 +23,9 @@ namespace Might.Entity.Enemy
             OnEnemyStateSwitched?.Invoke(newState);
         }
 
-        public IEnumerator SwitchToStateWithDelay(EnemyState newState)
+        public IEnumerator SwitchToStateWithDelay(EnemyState newState, float delay)
         {
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(delay);
 
             enemyStateTracker.CurrentState = newState;
 
