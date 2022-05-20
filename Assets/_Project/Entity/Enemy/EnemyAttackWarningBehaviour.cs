@@ -29,7 +29,7 @@ namespace Might.Entity.Enemy
 
         private void Start()
         {
-            CreateOrContinueWarningAnimation();
+            StartAttackWarningAnimation();
         }
      
 
@@ -74,7 +74,7 @@ namespace Might.Entity.Enemy
             }
         }
 
-        private void CreateOrContinueWarningAnimation()
+        private void StartAttackWarningAnimation()
         {
             Tweener attackWarningSet = attackWarningSprite.transform.parent.DOScale(animationEndScale, 0.2f);
             attackWarningSet.ChangeStartValue(startScale);
