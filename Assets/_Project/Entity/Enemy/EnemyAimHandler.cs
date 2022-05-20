@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Might.Entity.Enemy
 {
 
-    public class EnemyAIAimHandler : MonoBehaviour
+    public class EnemyAimHandler : MonoBehaviour
     {
         private Rigidbody2D rb;
 

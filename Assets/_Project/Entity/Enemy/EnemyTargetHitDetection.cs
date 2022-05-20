@@ -17,13 +17,28 @@ namespace Might.Entity.Enemy
         {
             if (collision.CompareTag("Player") && enemyStateTracker.CurrentState == EnemyState.Attacking)
             {
-                #region Damage player if he is not shielding
-                PlayerHealth targetHealth = collision.GetComponent<PlayerHealth>();
-                targetHealth.ReceiveDamage(1);
+                #region Get Target State
+                PlayerStateTracker playerStateTracker;
+                playerStateTracker = collision.GetComponent<PlayerStateTracker>();
                 #endregion
 
-                #region Knockback enemy if player is shielding
-                #endregion
+                //Damage player if he is not shielding
+                if(playerStateTracker.CurrentState != PlayerState.Defending)
+                {
+                    PlayerHealth target = collision.GetComponent<PlayerHealth>();
+                    target.ReceiveDamage(1);
+                }
+                //Knockback enemy if player is shielding
+                else
+                {
+                    #region Get enemy state switcher
+                    EnemyStateSwitcher enemyStateSwitcher;
+                    enemyStateSwitcher = GetComponentInParent<EnemyStateSwitcher>();
+                    #endregion
+                    enemyStateSwitcher.SwitchToState(EnemyState.IsBeingWeakened);
+                }
+
+
             }
         }
     }

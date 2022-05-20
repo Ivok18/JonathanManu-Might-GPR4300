@@ -8,6 +8,7 @@ namespace Might.Entity.Enemy
     {
         FollowingPlayer,
         ChargingAttack,
-        Attacking
+        Attacking,
+        IsBeingWeakened
     }
 }
