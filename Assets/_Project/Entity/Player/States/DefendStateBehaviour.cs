@@ -85,7 +85,7 @@ namespace Might.Entity.Player.States
             #endregion
 
             //Trigger defense when right mouse is pressed
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) && CanUseShield())
             {
                 playerStateSwitcher.SwitchToState(PlayerState.Defending);
             }
@@ -97,6 +97,12 @@ namespace Might.Entity.Player.States
             {
                 ShieldRemainingTime -= Time.deltaTime * shieldConsumeSpeed;
             }
+            else
+            {
+                DesactivateShield();
+                playerStateSwitcher.SwitchToState(PlayerState.None);
+            }
+            
             
 
         }
@@ -118,6 +124,11 @@ namespace Might.Entity.Player.States
         {
             //Hide game object and hide animation too
             Shield.gameObject.SetActive(false);           
+        }
+
+        public bool CanUseShield()
+        {
+            return ShieldRemainingTime > 0;
         }
 
        

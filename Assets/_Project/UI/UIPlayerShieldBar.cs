@@ -38,11 +38,9 @@ namespace Might.UI
 
         private void Update()
         {
-            if (playerStateTracker.CurrentState != PlayerState.Defending) return;
-
             float shieldRemainingTime = defendState.ShieldRemainingTime;
             float shieldMaxTime = defendState.ShieldMaxTime;
-            slider.value = shieldRemainingTime / shieldMaxTime;
+            slider.value = shieldRemainingTime / shieldMaxTime;  
         }
     }
 }
