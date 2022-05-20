@@ -40,7 +40,7 @@ namespace Might.Entity
             PlayerHealth.OnPlayerReceivedDamageCallback -= HandlePlayerReceivedDamage;          
         }
              
-        private void HandlePlayerReceivedDamage(float newHealth)
+        private void HandlePlayerReceivedDamage(float newHealth, float maxHealth)
         {
             StartAnim();
         }

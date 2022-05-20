@@ -26,7 +26,12 @@ namespace Might.Entity.Enemy
             AIDestinationSetter enemyAI = GetComponent<AIDestinationSetter>();
             #endregion
             //Store target position
-            Vector2 targetPosition = enemyAI.target.position;
+            Vector2 targetPosition = new Vector2();
+            if (enemyAI.target !=null)
+            {
+              targetPosition = enemyAI.target.position;
+            }
+            
 
             //Update Aim
             Vector2 aimDirection = targetPosition - rb.position;

@@ -11,6 +11,7 @@ namespace Might.Entity.Enemy
         public delegate void EnemyReceivedDamageCallback(float newHealth);
         public event EnemyReceivedDamageCallback OnEnemyReceivedDamageCallback;
 
+
         
         private void Start()
         {
@@ -23,6 +24,15 @@ namespace Might.Entity.Enemy
 
             OnEnemyReceivedDamageCallback?.Invoke(currentHealth);
 
+            if(currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+
+        public void Die()
+        {
+            Destroy(gameObject);
         }
 
             
