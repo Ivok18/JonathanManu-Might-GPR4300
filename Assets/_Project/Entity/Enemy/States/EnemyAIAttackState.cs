@@ -122,7 +122,5 @@ namespace Might.Entity.Enemy.States
         }
 
 
-
-
     }
 }

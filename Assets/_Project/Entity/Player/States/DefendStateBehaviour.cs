@@ -9,6 +9,9 @@ namespace Might.Entity.Player.States
 
         [SerializeField] private Transform shield;
         [SerializeField] private Vector3 startScale;
+        [SerializeField] private float shieldRemainingTime;
+        [SerializeField] private float shieldMaxTime;
+        [SerializeField] private float shieldConsumeSpeed;
         private Sequence shieldAnimation;
 
         public Transform Shield
@@ -23,10 +26,29 @@ namespace Might.Entity.Player.States
             set => shieldAnimation = value;
         }
 
+        public float ShieldRemainingTime
+        {
+            get => shieldRemainingTime;
+            set => shieldRemainingTime = value;
+        }
+
+        public float ShieldMaxTime
+        {
+            get => shieldMaxTime;
+            set => shieldMaxTime = value;
+        }
+
 
         private void OnEnable()
         {
             PlayerStateSwitcher.OnPlayerStateSwitched += HandleStateSwitch;
+        }
+
+       
+
+        private void OnDisable()
+        {
+            PlayerStateSwitcher.OnPlayerStateSwitched -= HandleStateSwitch;
         }
 
         private void HandleStateSwitch(PlayerState newState)
@@ -35,20 +57,20 @@ namespace Might.Entity.Player.States
             {
                 //Activate Shield
                 ActivateShield();
-                
+
                 //Stop player movement (à voir..)
                 //PlayerMovement playerMovement = GetComponent<PlayerMovement>();
                 //playerMovement.ImmobilizePlayer();
-            
+
                 //Put sword on player back
                 AttackStateBehaviour attackStateBehaviour = GetComponent<AttackStateBehaviour>();
-                attackStateBehaviour.PutSwordOnPlayerBack();               
+                attackStateBehaviour.PutSwordOnPlayerBack();
             }
         }
 
-        private void OnDisable()
+        private void Start()
         {
-            PlayerStateSwitcher.OnPlayerStateSwitched -= HandleStateSwitch;
+            shieldRemainingTime = shieldMaxTime;
         }
 
         void Update()
@@ -70,6 +92,12 @@ namespace Might.Entity.Player.States
 
             //Stop update method if player is not defending
             if (playerStateTracker.CurrentState != PlayerState.Defending) return;
+
+            if(ShieldRemainingTime >= 0)
+            {
+                ShieldRemainingTime -= Time.deltaTime * shieldConsumeSpeed;
+            }
+            
 
         }
 

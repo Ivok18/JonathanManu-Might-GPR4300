@@ -1,7 +1,7 @@
 using Might.Entity.Player;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 namespace Might.UI
 {
