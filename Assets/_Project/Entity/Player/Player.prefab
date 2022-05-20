@@ -503,6 +503,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 320958459259054395}
   startScale: {x: 0.65, y: 0.65, z: 0.65}
+  shieldRemainingTime: 0
+  shieldMaxTime: 10
+  shieldConsumeSpeed: 0.5
 --- !u!114 &1680575118172045156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,7 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f299d37ea2ca3bb409f8b650e9529ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 100
   currentHealth: 0
 --- !u!1 &8459280164881137561
 GameObject:

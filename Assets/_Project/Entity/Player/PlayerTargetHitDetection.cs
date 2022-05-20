@@ -20,6 +20,5 @@ namespace Might.Entity.Player
             }
         }
 
-        
     }
 }
