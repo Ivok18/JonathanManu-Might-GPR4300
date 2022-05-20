@@ -1,6 +1,7 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
+using Might.Entity.Enemy;
+using Might.Entity.Player;
+using System;
 using UnityEngine;
 
 namespace Might.Entity
@@ -10,10 +11,45 @@ namespace Might.Entity
         [SerializeField] private float fadeIntensity;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private float animDuration;
+        private EnemyHealth enemyHealth;
         private Sequence receiveDamageAnimation;
         private Color fadeColor;
         private Color startColor;
-        
+
+        private void Awake()
+        {
+            enemyHealth = GetComponent<EnemyHealth>();
+        }
+
+        private void OnEnable()
+        {
+            if (enemyHealth != null)
+            {
+                enemyHealth.OnEnemyReceivedDamageCallback += HandleEnemyReceivedDamage;
+            }
+            PlayerHealth.OnPlayerReceivedDamageCallback += HandlePlayerReceivedDamage;
+
+        }
+
+        private void OnDisable()
+        {
+            if(enemyHealth != null)
+            {
+                enemyHealth.OnEnemyReceivedDamageCallback -= HandleEnemyReceivedDamage;
+            }
+            PlayerHealth.OnPlayerReceivedDamageCallback -= HandlePlayerReceivedDamage;          
+        }
+             
+        private void HandlePlayerReceivedDamage(float newHealth)
+        {
+            StartAnim();
+        }
+
+        private void HandleEnemyReceivedDamage(float newHealth)
+        {
+            StartAnim();
+        }
+
         void Start()
         {
             startColor = spriteRenderer.color;

@@ -9,6 +9,9 @@ namespace Might.Entity.Player
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
 
+        public delegate void PlayerReceivedDamageCallback(float newHealth);
+        public static event PlayerReceivedDamageCallback OnPlayerReceivedDamageCallback;
+
         private void Start()
         {
             currentHealth = maxHealth;
@@ -18,12 +21,7 @@ namespace Might.Entity.Player
         {
             currentHealth -= damage;
 
-            #region Get receive damage anim script
-            ReceiveDamageAnim receiveDamageAnim = GetComponent<ReceiveDamageAnim>();
-            #endregion
-            //Start anim
-            receiveDamageAnim.StartAnim();
-
+            OnPlayerReceivedDamageCallback?.Invoke(currentHealth);
         }
     }
 }

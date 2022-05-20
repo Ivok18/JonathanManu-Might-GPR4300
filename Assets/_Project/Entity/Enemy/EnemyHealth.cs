@@ -7,6 +7,10 @@ namespace Might.Entity.Enemy
     {
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
+
+        public delegate void EnemyReceivedDamageCallback(float newHealth);
+        public event EnemyReceivedDamageCallback OnEnemyReceivedDamageCallback;
+
         
         private void Start()
         {
@@ -17,11 +21,7 @@ namespace Might.Entity.Enemy
         {
             currentHealth -= damage;
 
-            #region Get receive damage anim script
-            ReceiveDamageAnim receiveDamageAnim = GetComponent<ReceiveDamageAnim>();
-            #endregion
-            //Start anim
-            receiveDamageAnim.StartAnim();
+            OnEnemyReceivedDamageCallback?.Invoke(currentHealth);
 
         }
 
