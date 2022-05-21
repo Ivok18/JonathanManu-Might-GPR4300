@@ -532,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20efbd6bbbd557344b4c098a034107b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeIntensity: 0.5
+  endColorAlpha: 0.5
   spriteRenderer: {fileID: 8850107428046934956}
   animDuration: 0.2
 --- !u!114 &-1857985960928824794

@@ -58,10 +58,6 @@ namespace Might.Entity.Player.States
                 //Activate Shield
                 ActivateShield();
 
-                //Stop player movement (à voir..)
-                //PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-                //playerMovement.ImmobilizePlayer();
-
                 //Put sword on player back
                 AttackStateBehaviour attackStateBehaviour = GetComponent<AttackStateBehaviour>();
                 attackStateBehaviour.PutSwordOnPlayerBack();
@@ -130,7 +126,6 @@ namespace Might.Entity.Player.States
         {
             return ShieldRemainingTime > 0;
         }
-
        
     }
 }

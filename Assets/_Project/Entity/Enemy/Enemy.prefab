@@ -436,7 +436,8 @@ GameObject:
   - component: {fileID: 4021687660114648024}
   - component: {fileID: 6742920604734669292}
   - component: {fileID: 5546810072221804845}
-  - component: {fileID: 2264127196469211820}
+  - component: {fileID: -5157172406716648756}
+  - component: {fileID: 7546222488614773462}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -477,7 +478,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.0001
-  m_LinearDrag: 10
+  m_LinearDrag: 30
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -674,6 +675,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a21f624604e524d8fd34c931cb62df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stunAnim: {fileID: 7546222488614773462}
+  attackWarningAnim: {fileID: 6742920604734669292}
+  spriteRenderer: {fileID: 8850107428046934956}
+  knockbackForce: 1
+  stateDuration: 5
+  timeUntilEndOfState: 0
 --- !u!114 &4021687660114648024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,7 +724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
---- !u!114 &2264127196469211820
+--- !u!114 &-5157172406716648756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -726,11 +733,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 7176150704089628898}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20efbd6bbbd557344b4c098a034107b3, type: 3}
+  m_Script: {fileID: 11500000, guid: 78fed82bc96a59140b8e68ee0d8353a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeIntensity: 0.5
+  endColorAlpha: 0.5
   spriteRenderer: {fileID: 8850107428046934956}
+  animDuration: 0.2
+--- !u!114 &7546222488614773462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7176150704089628898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682eae53335f008448f56b59222c39d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8850107428046934956}
+  endColor: {r: 1, g: 0.7730876, b: 0, a: 1}
   animDuration: 0.2
 --- !u!1 &8394633958460757884
 GameObject:

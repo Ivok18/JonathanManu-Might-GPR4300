@@ -1,7 +1,5 @@
+using DG.Tweening;
 using Pathfinding;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Might.Entity.Enemy.States
@@ -9,6 +7,14 @@ namespace Might.Entity.Enemy.States
     public class EnemyAIWeakenedState : MonoBehaviour
     {
         Rigidbody2D rb;
+        [SerializeField] private StunAnimation stunAnim;
+        [SerializeField] private EnemyAttackWarningBehaviour attackWarningAnim;
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private float knockbackForce;
+        [SerializeField] private float stateDuration;
+        [SerializeField] private float timeUntilEndOfState;
+ 
+ 
 
         private void Awake()
         {
@@ -35,15 +41,59 @@ namespace Might.Entity.Enemy.States
         {
             if(newState == EnemyState.IsBeingWeakened)
             {
-                rb.AddForce(-transform.up * 2f);
-
-                #region Get enemy AI
+                #region Get enemy AI 
                 AIPath enemyAI = GetComponent<AIPath>();
-                enemyAI.canMove = false;
                 #endregion
-                ///velocity = (transform.position - GetComponent<AIDestinationSetter>().target.position) * -1 * 10;
+                //The code below executes itself ponly when player could move before entering weak state
+                //(#hardcoding #sorry)
+                if (enemyAI.canMove)
+                {
+                    //Apply knockback 
+                    rb.AddForce(-transform.up * knockbackForce);
+                    GetComponent<AIPath>().canMove = false;
+
+                    //Stun
+                    timeUntilEndOfState = stateDuration;
+                    StunAnimation stunAnim = GetComponent<StunAnimation>();
+                    stunAnim.StartAnim();
+                }          
             }
         }
 
+        private void Update()
+        {
+            #region Get enemy state tracker
+            EnemyStateTracker enemyStateTracker = GetComponent<EnemyStateTracker>();
+            #endregion
+            if (enemyStateTracker.CurrentState != EnemyState.IsBeingWeakened) return;
+
+            attackWarningAnim.AttackWarningSprite.enabled = false;
+
+            timeUntilEndOfState -= Time.deltaTime;
+
+            if(timeUntilEndOfState <= 0)
+            {
+
+                spriteRenderer.color = stunAnim.StartColor;
+
+                stunAnim.StunSequence.Kill(false);
+
+                #region Get enemy AI 
+                AIPath enemyAI = GetComponent<AIPath>();
+                #endregion
+                enemyAI.canMove = true;
+
+                #region Get enemy state switcher
+                EnemyStateSwitcher enemyStateSwitcher;
+                enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
+                #endregion
+                enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
+            }
+        }
+
+
+        
+
+        
     }
 }
