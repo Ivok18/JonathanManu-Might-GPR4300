@@ -9,6 +9,9 @@ namespace Might.Entity.Enemy.States
     public class EnemyAIWeakenedState : MonoBehaviour
     {
         Rigidbody2D rb;
+        [SerializeField] private float knockbackForce;
+        [SerializeField] private float stunDuration;
+
 
         private void Awake()
         {
@@ -35,15 +38,41 @@ namespace Might.Entity.Enemy.States
         {
             if(newState == EnemyState.IsBeingWeakened)
             {
-                rb.AddForce(-transform.up * 2f);
-
-                #region Get enemy AI
+                #region Get enemy AI 
                 AIPath enemyAI = GetComponent<AIPath>();
-                enemyAI.canMove = false;
                 #endregion
-                ///velocity = (transform.position - GetComponent<AIDestinationSetter>().target.position) * -1 * 10;
+                //(#hardcoding #sorry)
+                if (enemyAI.canMove)
+                {
+                   
+                    //Apply knockback only when player could move before entering weak state 
+                    rb.AddForce(-transform.up * knockbackForce);
+                    GetComponent<AIPath>().canMove = false;
+
+                    //Start stun animation
+                }          
             }
         }
 
+        private void Update()
+        {
+            #region Get enemy state tracker
+            EnemyStateTracker enemyStateTracker = GetComponent<EnemyStateTracker>();
+            #endregion
+            if (enemyStateTracker.CurrentState != EnemyState.IsBeingWeakened) return;
+
+            
+
+
+        }
+
+        /*public void PutSwordOnEnemyBack()
+        {
+            EnemyAIAttackState enemyAIAttack = GetComponent<EnemyAIAttackState>();
+            SpriteRenderer spriteRenderer = enemyAIAttack.Sword.GetComponentInChildren<SpriteRenderer>();
+            spriteRenderer.transform.localPosition = Vector3.zero;
+            spriteRenderer.transform.localEulerAngles = swordOnBackAngle;
+
+        }*/
     }
 }

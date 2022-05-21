@@ -59,12 +59,20 @@ namespace Might.Entity.Enemy.States
             //Make sure the sword is pointing straight forward when enemy not attacking
             attackState.SetSwordRotation(0);
 
+            if(!enemyAI.canMove)
+            {
+                #region Get enemy state switcher
+                EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
+                #endregion
+                enemyStateSwitcher.SwitchToState(EnemyState.IsBeingWeakened);
+            }
+
             if (enemyAI.reachedDestination)
             {
                 #region Get enemy state switcher
                 EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                 #endregion
-                enemyStateSwitcher.SwitchToState(EnemyState.Attacking); //maybe add delay (non)
+                enemyStateSwitcher.SwitchToState(EnemyState.Attacking); 
             }
         }
     }

@@ -80,11 +80,11 @@ namespace Might.Entity.Enemy.States
                 }
             }
             else
-            {         
+            {                     
                 #region Get enemy state switcher
                 EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                 #endregion
-                enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
+                enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);                           
             }
         }
     }

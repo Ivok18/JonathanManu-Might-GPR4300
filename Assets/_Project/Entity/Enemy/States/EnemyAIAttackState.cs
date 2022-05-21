@@ -89,18 +89,19 @@ namespace Might.Entity.Enemy.States
                 #endregion
                 if(enemyAI.reachedDestination)
                 {
+                  
+                    //Debug.Log("wo");
                     #region Get enemy state switcher
                     EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                     #endregion
-                    StartCoroutine(enemyStateSwitcher.SwitchToStateWithDelay(EnemyState.ChargingAttack, 0.4f));
-                   
+                    StartCoroutine(enemyStateSwitcher.SwitchToStateWithDelay(EnemyState.ChargingAttack, 0.4f));             
                 }
                 else
-                {
+                {                  
                     #region Get enemy state switcher
                     EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                     #endregion
-                    enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
+                    enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);                   
                 }
             }
             
