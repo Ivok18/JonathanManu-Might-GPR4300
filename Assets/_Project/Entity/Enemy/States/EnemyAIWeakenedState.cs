@@ -11,7 +11,9 @@ namespace Might.Entity.Enemy.States
         Rigidbody2D rb;
         [SerializeField] private float knockbackForce;
         [SerializeField] private float stunDuration;
-
+        [SerializeField] private float timeUntilEndOfStun;
+ 
+ 
 
         private void Awake()
         {
@@ -44,16 +46,21 @@ namespace Might.Entity.Enemy.States
                 //(#hardcoding #sorry)
                 if (enemyAI.canMove)
                 {
-                   
+                                      
                     //Apply knockback only when player could move before entering weak state 
                     rb.AddForce(-transform.up * knockbackForce);
                     GetComponent<AIPath>().canMove = false;
 
-                    //Start stun animation
+                    //Start stun effect
+                    timeUntilEndOfStun = stunDuration;
                 }          
             }
         }
 
+        private void Start()
+        {
+          
+        }
         private void Update()
         {
             #region Get enemy state tracker
@@ -61,18 +68,25 @@ namespace Might.Entity.Enemy.States
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.IsBeingWeakened) return;
 
-            
+           /* timeUntilEndOfStun -= Time.deltaTime;
 
+            if(timeUntilEndOfStun <= 0)
+            {
+                #region Get enemy state switcher
+                EnemyStateSwitcher enemyStateSwitcher;
+                enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
+                #endregion
+                enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
+            }*/
+        }
+
+
+        public void StartStunAnim()
+        {
 
         }
 
-        /*public void PutSwordOnEnemyBack()
-        {
-            EnemyAIAttackState enemyAIAttack = GetComponent<EnemyAIAttackState>();
-            SpriteRenderer spriteRenderer = enemyAIAttack.Sword.GetComponentInChildren<SpriteRenderer>();
-            spriteRenderer.transform.localPosition = Vector3.zero;
-            spriteRenderer.transform.localEulerAngles = swordOnBackAngle;
 
-        }*/
+        
     }
 }
