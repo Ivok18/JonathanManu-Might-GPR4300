@@ -7,6 +7,7 @@ namespace Might.Entity.Enemy
     {
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
+        
 
         public delegate void EnemyReceivedDamageCallback(float newHealth);
         public event EnemyReceivedDamageCallback OnEnemyReceivedDamageCallback;
@@ -32,6 +33,7 @@ namespace Might.Entity.Enemy
 
         public void Die()
         {
+            
             Destroy(gameObject);
         }
 
