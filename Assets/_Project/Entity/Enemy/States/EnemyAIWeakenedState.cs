@@ -1,7 +1,5 @@
+using DG.Tweening;
 using Pathfinding;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Might.Entity.Enemy.States
@@ -9,9 +7,12 @@ namespace Might.Entity.Enemy.States
     public class EnemyAIWeakenedState : MonoBehaviour
     {
         Rigidbody2D rb;
+        [SerializeField] private StunAnimation stunAnim;
+        [SerializeField] private EnemyAttackWarningBehaviour attackWarningAnim;
+        [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private float knockbackForce;
-        [SerializeField] private float stunDuration;
-        [SerializeField] private float timeUntilEndOfStun;
+        [SerializeField] private float stateDuration;
+        [SerializeField] private float timeUntilEndOfState;
  
  
 
@@ -43,24 +44,22 @@ namespace Might.Entity.Enemy.States
                 #region Get enemy AI 
                 AIPath enemyAI = GetComponent<AIPath>();
                 #endregion
+                //The code below executes itself ponly when player could move before entering weak state
                 //(#hardcoding #sorry)
                 if (enemyAI.canMove)
                 {
-                                      
-                    //Apply knockback only when player could move before entering weak state 
+                    //Apply knockback 
                     rb.AddForce(-transform.up * knockbackForce);
                     GetComponent<AIPath>().canMove = false;
 
-                    //Start stun effect
-                    timeUntilEndOfStun = stunDuration;
+                    //Stun
+                    timeUntilEndOfState = stateDuration;
+                    StunAnimation stunAnim = GetComponent<StunAnimation>();
+                    stunAnim.StartAnim();
                 }          
             }
         }
 
-        private void Start()
-        {
-          
-        }
         private void Update()
         {
             #region Get enemy state tracker
@@ -68,24 +67,32 @@ namespace Might.Entity.Enemy.States
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.IsBeingWeakened) return;
 
-           /* timeUntilEndOfStun -= Time.deltaTime;
+            attackWarningAnim.AttackWarningSprite.enabled = false;
 
-            if(timeUntilEndOfStun <= 0)
+            timeUntilEndOfState -= Time.deltaTime;
+
+            if(timeUntilEndOfState <= 0)
             {
+
+                spriteRenderer.color = stunAnim.StartColor;
+
+                stunAnim.StunSequence.Kill(false);
+
+                #region Get enemy AI 
+                AIPath enemyAI = GetComponent<AIPath>();
+                #endregion
+                enemyAI.canMove = true;
+
                 #region Get enemy state switcher
                 EnemyStateSwitcher enemyStateSwitcher;
                 enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                 #endregion
                 enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
-            }*/
+            }
         }
 
 
-        public void StartStunAnim()
-        {
-
-        }
-
+        
 
         
     }
