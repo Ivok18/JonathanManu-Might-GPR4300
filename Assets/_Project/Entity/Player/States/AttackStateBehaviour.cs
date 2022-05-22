@@ -6,12 +6,14 @@ namespace Might.Entity.Player.States
 {
     public class AttackStateBehaviour : MonoBehaviour
     {
+        [SerializeField] private PlayerTargetHitDetection hitDetection;
         [SerializeField] private float swordStartRotation;
         [SerializeField] private float swordRotationModifier;
         [SerializeField] private float attackDuration;
         [SerializeField] private Transform sword;
         [SerializeField] private Vector3 swordOnBackAngle;
         [SerializeField] private Vector3 swordDrawPosition;
+
 
         private float attackCooldown;   
         public float SwordStartRotation
@@ -36,6 +38,7 @@ namespace Might.Entity.Player.States
         private void OnEnable()
         {
             PlayerStateSwitcher.OnPlayerStateSwitched += HandlePlayerStateSwitched;
+            
         }
         private void HandlePlayerStateSwitched(PlayerState newState)
         {
@@ -44,10 +47,6 @@ namespace Might.Entity.Player.States
                 //Desactivate player shield
                 DefendStateBehaviour defendStateBehaviour = GetComponent<DefendStateBehaviour>();
                 defendStateBehaviour.DesactivateShield();
-
-                //Allow player to move
-                //PlayerMovement playerMovement = GetComponent<PlayerMovement>();
-                //playerMovement.RestoreMovement();
 
                 //Draw player sword
                 DrawSword();
@@ -83,6 +82,9 @@ namespace Might.Entity.Player.States
                 //Trigger attack when left mouse click
                 if (Input.GetMouseButtonDown(0))
                 {
+                    //Activate hit detection
+                    SetHitDetection(true);
+
                     //Ensure cps limit
                     attackCooldown = 1f / 2.7f;
                     playerStateSwitcher.SwitchToState(PlayerState.Attacking);
@@ -99,10 +101,12 @@ namespace Might.Entity.Player.States
             #endregion
             EndRotation = GetSwordRotation() + SwordRotationModifier;
             Sword.DORotate(new Vector3(0, 0, EndRotation), attackDuration, RotateMode.Fast);
+          
 
             //Switch state at the end of slash attack
             if (SlashIsCompleted())
             {
+                
                 if (!Input.GetMouseButtonDown(0))
                 {
                     playerStateSwitcher.SwitchToState(PlayerState.None);
@@ -110,7 +114,8 @@ namespace Might.Entity.Player.States
                 else
                 {
                     SetSwordRotation(SwordStartRotation);
-                }               
+                }
+                SetHitDetection(false);
             }
    
         }
@@ -145,9 +150,12 @@ namespace Might.Entity.Player.States
             spriteRenderer.transform.localEulerAngles = Vector3.zero;
         }
 
+        public void SetHitDetection(bool boolean)
+        {
+            hitDetection.SwordCollider.enabled = boolean;
+        }
 
-
-       
+        
 
     }
 }

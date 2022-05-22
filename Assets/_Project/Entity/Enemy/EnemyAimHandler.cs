@@ -25,7 +25,7 @@ namespace Might.Entity.Enemy
             #region Get enemy AI
             AIDestinationSetter enemyAI = GetComponent<AIDestinationSetter>();
             #endregion
-            //Store target position
+            //Store target position if it exists
             Vector2 targetPosition = new Vector2();
             if (enemyAI.target !=null)
             {
