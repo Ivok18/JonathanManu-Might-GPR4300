@@ -14,6 +14,8 @@ namespace Might.Entity.Player.States
         [SerializeField] private Vector3 swordOnBackAngle;
         [SerializeField] private Vector3 swordDrawPosition;
 
+        [SerializeField] private AudioSource swordSoundEffect;
+
 
         private float attackCooldown;   
         public float SwordStartRotation
@@ -88,6 +90,9 @@ namespace Might.Entity.Player.States
                     //Ensure cps limit
                     attackCooldown = 1f / 2.7f;
                     playerStateSwitcher.SwitchToState(PlayerState.Attacking);
+
+                    //Sword sound effect
+                    swordSoundEffect.Play();
                 }
             }
             

@@ -13,6 +13,7 @@ namespace Might.Entity.Player.States
         [SerializeField] private float shieldMaxTime;
         [SerializeField] private float shieldConsumeSpeed;
         private Sequence shieldAnimation;
+        [SerializeField] private AudioSource shieldSoundEffect;
 
         public Transform Shield
         {
@@ -114,6 +115,7 @@ namespace Might.Entity.Player.States
             shieldAnimation = DOTween.Sequence(Shield);
             shieldAnimation.Append(shieldAnimSet);
             shieldAnimation.SetLoops(-1, LoopType.Yoyo);
+            shieldSoundEffect.Play();
         }
 
         public void DesactivateShield()

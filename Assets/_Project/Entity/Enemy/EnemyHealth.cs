@@ -8,8 +8,6 @@ namespace Might.Entity.Enemy
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
 
-        [SerializeField] private AudioSource enemyDeathSound;
-
         public delegate void EnemyReceivedDamageCallback(float newHealth);
         public event EnemyReceivedDamageCallback OnEnemyReceivedDamageCallback;
 
@@ -28,8 +26,8 @@ namespace Might.Entity.Enemy
 
             if(currentHealth <= 0)
             {
+                FindObjectOfType<AudioManager>().Play("EnemyDeath");
                 Die();
-                enemyDeathSound.Play();
             }
         }
 

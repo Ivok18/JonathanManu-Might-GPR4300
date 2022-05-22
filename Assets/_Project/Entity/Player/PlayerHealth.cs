@@ -28,6 +28,7 @@ namespace Might.Entity.Player
 
             if (currentHealth <= 0)
             {
+                FindObjectOfType<AudioManager>().Play("PlayerDeath");
                 OnPlayerDiedCallback?.Invoke(gameObject);
             }
         }
