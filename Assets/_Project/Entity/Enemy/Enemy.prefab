@@ -726,7 +726,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
-  enemyDeathSound: {fileID: -5616778003388484763}
 --- !u!114 &-5157172406716648756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 8850107428046934956}
-  endColor: {r: 1, g: 0.7730876, b: 0, a: 1}
+  endColor: {r: 1, g: 0.8556699, b: 0, a: 1}
   animDuration: 0.2
 --- !u!82 &-5616778003388484763
 AudioSource:

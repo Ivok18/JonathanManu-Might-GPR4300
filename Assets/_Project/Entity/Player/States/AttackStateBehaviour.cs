@@ -15,7 +15,7 @@ namespace Might.Entity.Player.States
         [SerializeField] private Vector3 swordDrawPosition;
         [SerializeField] private AudioSource swordSoundEffect;
         private Tweener swordMovement;
-
+        bool ok;
 
 
         private float attackCooldown;   
@@ -65,10 +65,7 @@ namespace Might.Entity.Player.States
 
         void Update()
         {
-          
-            #region Get player state tracker
-            PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
-            #endregion
+                      
             #region Get player state switcher 
             PlayerStateSwitcher playerStateSwitcher;
             playerStateSwitcher = GetComponent<PlayerStateSwitcher>();
@@ -114,23 +111,24 @@ namespace Might.Entity.Player.States
 
         public IEnumerator SwordSlash()
         {
-            EndRotation = GetSwordRotation() + SwordRotationModifier;
-            swordMovement = Sword.DORotate(new Vector3(0, 0, EndRotation), attackDuration, RotateMode.Fast);
-            yield return swordMovement.WaitForCompletion();
-
             #region Get player state switcher 
             PlayerStateSwitcher playerStateSwitcher;
             playerStateSwitcher = GetComponent<PlayerStateSwitcher>();
             #endregion
+            #region Get player state tracker
+            PlayerStateTracker playerStateTracker = GetComponent<PlayerStateTracker>();
+            #endregion
+
+            EndRotation = GetSwordRotation() + SwordRotationModifier;
+            swordMovement = Sword.DORotate(new Vector3(0, 0, EndRotation), attackDuration, RotateMode.Fast);
+            yield return swordMovement.WaitForCompletion();
+
             //Switch state at the end of slash attack
-            if (!Input.GetMouseButtonDown(0))
+            if (playerStateTracker.CurrentState != PlayerState.Defending) 
             {
                 playerStateSwitcher.SwitchToState(PlayerState.None);
             }
-            else
-            {
-                SetSwordRotation(SwordStartRotation);
-            }
+           
             SetHitDetection(false);
         }
 
