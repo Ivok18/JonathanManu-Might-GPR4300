@@ -756,7 +756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
-  playerDeathSound: {fileID: 3458412442679477389}
 --- !u!82 &8122913477967827179
 AudioSource:
   m_ObjectHideFlags: 0

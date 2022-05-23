@@ -1,6 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
-
+using System.Collections;
 
 namespace Might.Entity.Player.States
 {
@@ -13,8 +13,9 @@ namespace Might.Entity.Player.States
         [SerializeField] private Transform sword;
         [SerializeField] private Vector3 swordOnBackAngle;
         [SerializeField] private Vector3 swordDrawPosition;
-
         [SerializeField] private AudioSource swordSoundEffect;
+        private Tweener swordMovement;
+
 
 
         private float attackCooldown;   
@@ -39,8 +40,7 @@ namespace Might.Entity.Player.States
 
         private void OnEnable()
         {
-            PlayerStateSwitcher.OnPlayerStateSwitched += HandlePlayerStateSwitched;
-            
+            PlayerStateSwitcher.OnPlayerStateSwitched += HandlePlayerStateSwitched;           
         }
         private void HandlePlayerStateSwitched(PlayerState newState)
         {
@@ -91,38 +91,15 @@ namespace Might.Entity.Player.States
                     attackCooldown = 1f / 2.7f;
                     playerStateSwitcher.SwitchToState(PlayerState.Attacking);
 
+                    #region Prevent capacity overload (just some details dw)
+                    DOTween.SetTweensCapacity(10000, 10000);
+                    #endregion
+                    StartCoroutine("SwordSlash");
+
                     //Sword sound effect
                     swordSoundEffect.Play();
                 }
             }
-            
-
-            //Stop update method if player is not attacking
-            if (playerStateTracker.CurrentState != PlayerState.Attacking) return;
-
-            //Slash with sword
-            #region Prevent capacity overload (just some details dw)
-            DOTween.SetTweensCapacity(10000, 10000);
-            #endregion
-            EndRotation = GetSwordRotation() + SwordRotationModifier;
-            Sword.DORotate(new Vector3(0, 0, EndRotation), attackDuration, RotateMode.Fast);
-          
-
-            //Switch state at the end of slash attack
-            if (SlashIsCompleted())
-            {
-                
-                if (!Input.GetMouseButtonDown(0))
-                {
-                    playerStateSwitcher.SwitchToState(PlayerState.None);
-                }
-                else
-                {
-                    SetSwordRotation(SwordStartRotation);
-                }
-                SetHitDetection(false);
-            }
-   
         }
 
         public void SetSwordRotation(float rotation)
@@ -135,9 +112,26 @@ namespace Might.Entity.Player.States
             return transform.localEulerAngles.z;
         }
 
-        public bool SlashIsCompleted()
+        public IEnumerator SwordSlash()
         {
-            return Sword.localEulerAngles.z >= EndRotation;
+            EndRotation = GetSwordRotation() + SwordRotationModifier;
+            swordMovement = Sword.DORotate(new Vector3(0, 0, EndRotation), attackDuration, RotateMode.Fast);
+            yield return swordMovement.WaitForCompletion();
+
+            #region Get player state switcher 
+            PlayerStateSwitcher playerStateSwitcher;
+            playerStateSwitcher = GetComponent<PlayerStateSwitcher>();
+            #endregion
+            //Switch state at the end of slash attack
+            if (!Input.GetMouseButtonDown(0))
+            {
+                playerStateSwitcher.SwitchToState(PlayerState.None);
+            }
+            else
+            {
+                SetSwordRotation(SwordStartRotation);
+            }
+            SetHitDetection(false);
         }
 
         public void PutSwordOnPlayerBack()
@@ -159,8 +153,6 @@ namespace Might.Entity.Player.States
         {
             hitDetection.SwordCollider.enabled = boolean;
         }
-
-        
 
     }
 }
