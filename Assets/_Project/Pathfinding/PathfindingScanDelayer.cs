@@ -11,7 +11,7 @@ namespace Might.Pathfinding
             GenerationBehaviour.OnGenerationEndedCallback += ScanMap;
         }
 
-        private void ScanMap()
+        public void ScanMap()
         {
             StartCoroutine("DelayScan", 0.01f);
         }
