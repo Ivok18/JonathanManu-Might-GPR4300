@@ -12,8 +12,8 @@ namespace Might.WaveSystem
         [SerializeField] private WaveData[] waves;    
         private int currentWaveIndex;
 
-        //public delegate void WaveEndedCallback();
-        //public static event WaveEndedCallback OnWaveEndedCallback;
+        public delegate void WaveEndedCallback();
+        public static event WaveEndedCallback OnWaveEndedCallback;
 
         public WaveData CurrentWave => waves[currentWaveIndex];
 
@@ -22,9 +22,7 @@ namespace Might.WaveSystem
         private void OnEnable()
         {
             GenerationBehaviour.OnGenerationEndedCallback += HandleGenerationEnd;
-            EnemyHealth.OnEnemyDiedCallback += HandleEnemyDied; 
-           
-           
+            EnemyHealth.OnEnemyDiedCallback += HandleEnemyDied;         
         }
 
         private void OnDisable()
@@ -44,6 +42,12 @@ namespace Might.WaveSystem
                 {
                     currentWaveIndex++;
                 }
+                else
+                {
+                    //Load Win Scene
+                }
+
+                OnWaveEndedCallback?.Invoke();              
             }
         }
 

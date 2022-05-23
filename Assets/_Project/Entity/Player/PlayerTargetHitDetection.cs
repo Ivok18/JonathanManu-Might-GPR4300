@@ -19,8 +19,20 @@ namespace Might.Entity.Player
         {
             if(collision.CompareTag("Enemy") && playerStateTracker.CurrentState == PlayerState.Attacking)
             {
-                EnemyHealth targetHealth = collision.GetComponent<EnemyHealth>();
-                targetHealth.ReceiveDamage(2);
+                #region Get Target State && Health
+                EnemyStateTracker enemyStateTracker;
+                enemyStateTracker = collision.GetComponent<EnemyStateTracker>();
+                EnemyHealth target = collision.GetComponent<EnemyHealth>();
+                #endregion 
+                if (enemyStateTracker.CurrentState != EnemyState.IsBeingWeakened)
+                {                    
+                    target.ReceiveDamage(1);
+                }
+                else
+                {         
+                    target.ReceiveDamage(3);
+                }
+                
             }
         }
 

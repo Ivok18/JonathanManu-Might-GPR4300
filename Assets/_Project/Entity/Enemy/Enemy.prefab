@@ -681,7 +681,7 @@ MonoBehaviour:
   attackWarningAnim: {fileID: 6742920604734669292}
   spriteRenderer: {fileID: 8850107428046934956}
   knockbackForce: 1
-  stateDuration: 5
+  stateDuration: 3
   timeUntilEndOfState: 0
 --- !u!114 &4021687660114648024
 MonoBehaviour:
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d3ce6b91112c54087caa15794b542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 3
   currentHealth: 0
 --- !u!114 &-5157172406716648756
 MonoBehaviour:

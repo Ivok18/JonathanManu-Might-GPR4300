@@ -712,7 +712,7 @@ MonoBehaviour:
   startScale: {x: 0.65, y: 0.65, z: 0.65}
   shieldRemainingTime: 0
   shieldMaxTime: 10
-  shieldConsumeSpeed: 0.5
+  shieldConsumeSpeed: 2.5
   shieldSoundEffect: {fileID: 8122913477967827179}
 --- !u!114 &3893738552135267847
 MonoBehaviour:
@@ -754,7 +754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f299d37ea2ca3bb409f8b650e9529ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   currentHealth: 0
 --- !u!82 &8122913477967827179
 AudioSource:
