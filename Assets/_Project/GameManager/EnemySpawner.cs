@@ -11,25 +11,8 @@ namespace Might.GameManager
 
         public delegate void EnemySpawnedCallback(Transform enemy);
         public static event EnemySpawnedCallback OnEnemySpawnedCallback;
-
-
-
-        private void OnEnable()
-        {
-            GenerationBehaviour.OnGenerationEndedCallback += HandleGenerationEnd;
-        }
-
-        private void HandleGenerationEnd()
-        {
-            SpawnEnemy();
-        }
-
-        private void OnDisable()
-        {
-            GenerationBehaviour.OnGenerationEndedCallback -= HandleGenerationEnd;
-        }
    
-        public void SpawnEnemy()
+        public void SpawnEnemy(GameObject enemy)
         {
             MapProcessor mapProcessor = generation.GetComponent<MapProcessor>();
             NeighbourTilesTracker tracker = generation.GetComponent<NeighbourTilesTracker>();
@@ -46,8 +29,7 @@ namespace Might.GameManager
                         int caveCount = tracker.GetSurroundingCaveCount(x, y);
                         if (caveCount >= 8)
                         {
-
-                            GameObject enemy = Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                            enemy = Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
                             OnEnemySpawnedCallback?.Invoke(enemy.transform);
                             return;
                         }

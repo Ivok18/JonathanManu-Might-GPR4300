@@ -19,9 +19,8 @@ namespace Might.Entity.Player
         {
             if(collision.CompareTag("Enemy") && playerStateTracker.CurrentState == PlayerState.Attacking)
             {
-                Debug.Log("ouch");
                 EnemyHealth targetHealth = collision.GetComponent<EnemyHealth>();
-                targetHealth.ReceiveDamage(0);
+                targetHealth.ReceiveDamage(2);
             }
         }
 
