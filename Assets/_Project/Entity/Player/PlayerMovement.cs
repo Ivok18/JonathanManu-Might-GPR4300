@@ -11,6 +11,15 @@ namespace Might.Entity.Player
         private Vector2 movement;
         private Rigidbody2D rb;
 
+        private void OnEnable()
+        {
+            PlayerHealth.OnPlayerDeath += DisablePlayerMovement;
+        }
+
+        private void OnDisable()
+        {
+            PlayerHealth.OnPlayerDeath -= DisablePlayerMovement;
+        }
       
 
         private void Awake()
@@ -21,6 +30,7 @@ namespace Might.Entity.Player
         private void Start()
         {
             currentMoveSpeed = moveSpeed;
+            EnablePlayerMovement();
         }
 
         private void Update()
@@ -68,6 +78,14 @@ namespace Might.Entity.Player
             currentMoveSpeed = moveSpeed;
         }
 
+        private void DisablePlayerMovement()
+        {
+            rb.bodyType = RigidbodyType2D.Static;
+        }
 
+        private void EnablePlayerMovement()
+        {
+            rb.bodyType = RigidbodyType2D.Dynamic; 
+        }
     }
 }
