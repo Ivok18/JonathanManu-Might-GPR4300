@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ namespace Might.Entity.Player
 {
     public class PlayerHealth : MonoBehaviour
     {
+        public static event Action OnPlayerDeath;
+
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
 
@@ -30,6 +33,7 @@ namespace Might.Entity.Player
             {
                 FindObjectOfType<AudioManager>().Play("PlayerDeath");
                 OnPlayerDiedCallback?.Invoke(gameObject);
+                OnPlayerDeath?.Invoke();
             }
         }
 
