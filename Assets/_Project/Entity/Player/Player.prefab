@@ -692,6 +692,7 @@ MonoBehaviour:
   swordStartRotation: 100
   swordRotationModifier: -40
   attackDuration: 0.25
+  atk: 1
   sword: {fileID: 8988867051822813334}
   swordOnBackAngle: {x: 20, y: 20, z: 20}
   swordDrawPosition: {x: 0, y: -6.16, z: 0}
@@ -712,7 +713,7 @@ MonoBehaviour:
   startScale: {x: 0.65, y: 0.65, z: 0.65}
   shieldRemainingTime: 0
   shieldMaxTime: 10
-  shieldConsumeSpeed: 2.5
+  shieldConsumeSpeed: 2
   shieldSoundEffect: {fileID: 8122913477967827179}
 --- !u!114 &3893738552135267847
 MonoBehaviour:
@@ -726,7 +727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a9e6c81e355eb42bc70f3046d9775e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regenSpeed: 0.25
+  regenSpeed: 1
 --- !u!114 &1680575118172045156
 MonoBehaviour:
   m_ObjectHideFlags: 0

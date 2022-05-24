@@ -10,13 +10,19 @@ namespace Might.Entity.Player.States
         [SerializeField] private float swordStartRotation;
         [SerializeField] private float swordRotationModifier;
         [SerializeField] private float attackDuration;
+        [SerializeField] private float atk;
         [SerializeField] private Transform sword;
         [SerializeField] private Vector3 swordOnBackAngle;
         [SerializeField] private Vector3 swordDrawPosition;
         [SerializeField] private AudioSource swordSoundEffect;
         private Tweener swordMovement;
-        bool ok;
 
+
+        public float Atk
+        {
+            get => atk;
+            set => atk = value;
+        }
 
         private float attackCooldown;   
         public float SwordStartRotation

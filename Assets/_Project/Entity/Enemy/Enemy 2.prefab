@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7,
     type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.106046915, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -231,7 +231,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 439582305, guid: bcbe26e607c4b3840b21f8ca44db7c35, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.105882354, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -345,7 +345,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.735849, g: 0, b: 0, a: 1}
+      key0: {r: 0.10588236, g: 1, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -440,7 +440,7 @@ GameObject:
   - component: {fileID: 7546222488614773462}
   - component: {fileID: -5616778003388484763}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Enemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -530,7 +530,7 @@ MonoBehaviour:
   radius: 0.76
   height: 2
   canMove: 1
-  maxSpeed: 10
+  maxSpeed: 15
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -648,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 320a7dcccea4b454490e822c5d3cd8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 1.4
   timeUntilNextAttack: 0
 --- !u!114 &-7068617496099359365
 MonoBehaviour:
@@ -662,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3798c0d2a8450844a0b63b20aa9aba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atk: 1.5
   swordStartRotation: 100
   swordRotationOffset: -40
   sword: {fileID: 4652328606413638403}
@@ -724,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d3ce6b91112c54087caa15794b542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 4
   currentHealth: 0
 --- !u!114 &-5157172406716648756
 MonoBehaviour:
@@ -956,7 +957,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.8490566, g: 0, b: 0, a: 1}
+      key0: {r: 0.10588236, g: 1, b: 0, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

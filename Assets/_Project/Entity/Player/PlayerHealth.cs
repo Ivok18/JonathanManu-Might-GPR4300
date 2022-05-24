@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Might.Entity.Player
@@ -12,11 +10,12 @@ namespace Might.Entity.Player
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
 
-        public delegate void PlayerReceivedDamageCallback(float newHealth, float maxHealth);
-        public static event PlayerReceivedDamageCallback OnPlayerReceivedDamageCallback;
+        public delegate void PlayerHealthChangedCallback(float oldHealth, float newHealth, float maxHealth);
+        public static event PlayerHealthChangedCallback OnPlayerHealthChangedCallback;
 
         public delegate void PlayerDiedCallback(GameObject player);
         public static event PlayerDiedCallback OnPlayerDiedCallback;
+
 
         private void Start()
         {
@@ -25,9 +24,11 @@ namespace Might.Entity.Player
 
         public void ReceiveDamage(float damage)
         {
+            float oldHealth = currentHealth;
+
             currentHealth -= damage;
 
-            OnPlayerReceivedDamageCallback?.Invoke(currentHealth, maxHealth);
+            OnPlayerHealthChangedCallback?.Invoke(oldHealth, currentHealth, maxHealth);
 
             if (currentHealth <= 0)
             {
@@ -35,6 +36,17 @@ namespace Might.Entity.Player
                 OnPlayerDiedCallback?.Invoke(gameObject);
                 OnPlayerDeath?.Invoke();
             }
+        }
+
+        public void Regen()
+        {
+            float oldHealth = currentHealth;
+
+            float regenValue = oldHealth * 0.3f;
+            currentHealth += regenValue;
+
+            OnPlayerHealthChangedCallback?.Invoke(oldHealth, currentHealth, maxHealth);
+
         }
 
     }

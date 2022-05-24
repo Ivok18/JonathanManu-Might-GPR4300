@@ -46,9 +46,14 @@ namespace Might.Entity.Enemy.States
                 //Desactivate attack warning
                 attackWarning.AttackWarningSprite.enabled = false;
 
-                timeUntilNextAttack = timeBetweenAttacks;
+                //timeUntilNextAttack = timeBetweenAttacks;
 
             }
+        }
+
+        private void Start()
+        {
+            timeUntilNextAttack = timeBetweenAttacks;
         }
 
         void Update()
@@ -76,6 +81,7 @@ namespace Might.Entity.Enemy.States
                 #endregion
                 if (timeUntilNextAttack <= 0)
                 {
+                    timeUntilNextAttack = timeBetweenAttacks;
                     enemyStateSwitcher.SwitchToState(EnemyState.Attacking);
                 }
             }

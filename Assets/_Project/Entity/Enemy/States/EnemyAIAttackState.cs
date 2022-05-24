@@ -7,9 +7,16 @@ namespace Might.Entity.Enemy.States
     public class EnemyAIAttackState : MonoBehaviour
     {
 
+        [SerializeField] private float atk;
         [SerializeField] private float swordStartRotation;
         [SerializeField] private float swordRotationOffset;
         [SerializeField] private Transform sword;
+
+        public float Atk
+        {
+            get => atk;
+            set => atk = value;
+        }
 
         public Transform Sword
         {

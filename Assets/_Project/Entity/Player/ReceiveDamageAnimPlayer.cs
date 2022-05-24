@@ -15,17 +15,21 @@ namespace Might.Entity.Player
 
         private void OnEnable()
         {         
-            PlayerHealth.OnPlayerReceivedDamageCallback += HandlePlayerReceivedDamage;
+            PlayerHealth.OnPlayerHealthChangedCallback += HandlePlayerHealthChanged;
         }
 
         private void OnDisable()
         {   
-            PlayerHealth.OnPlayerReceivedDamageCallback -= HandlePlayerReceivedDamage;          
+            PlayerHealth.OnPlayerHealthChangedCallback -= HandlePlayerHealthChanged;          
         }
              
-        private void HandlePlayerReceivedDamage(float newHealth, float maxHealth)
+        private void HandlePlayerHealthChanged(float oldHealth, float newHealth, float maxHealth)
         {
-            StartAnim();
+            if(newHealth < oldHealth)
+            {
+                StartAnim();
+            }
+           
         }
 
         void Start()

@@ -7,12 +7,12 @@ namespace Might.GameManager
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GenerationBehaviour generation;
-        [SerializeField] private GameObject enemyPrefab;
+        //[SerializeField] private GameObject enemyPrefab;
 
         public delegate void EnemySpawnedCallback(Transform enemy);
         public static event EnemySpawnedCallback OnEnemySpawnedCallback;
    
-        public void SpawnEnemy(GameObject enemy)
+        public void SpawnEnemy(GameObject enemyPrefab)
         {
             MapProcessor mapProcessor = generation.GetComponent<MapProcessor>();
             NeighbourTilesTracker tracker = generation.GetComponent<NeighbourTilesTracker>();
@@ -29,7 +29,7 @@ namespace Might.GameManager
                         int caveCount = tracker.GetSurroundingCaveCount(x, y);
                         if (caveCount >= 8)
                         {
-                            enemy = Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
+                            GameObject enemy = Instantiate(enemyPrefab, new Vector3(x, y, 0), Quaternion.identity);
                             OnEnemySpawnedCallback?.Invoke(enemy.transform);
                             return;
                         }

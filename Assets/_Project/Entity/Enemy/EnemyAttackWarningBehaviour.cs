@@ -50,7 +50,7 @@ namespace Might.Entity.Enemy
             }
 
 
-            else if(enemyStateTracker.CurrentState == EnemyState.FollowingPlayer)
+           /* else if(enemyStateTracker.CurrentState == EnemyState.FollowingPlayer)
             {
                 #region Get enemy AI path
                 AIPath enemyAI = GetComponent<AIPath>();
@@ -71,7 +71,7 @@ namespace Might.Entity.Enemy
                     attackWarningSprite.enabled = true;
                 }
                 
-            }
+            }*/
         }
 
         private void StartAttackWarningAnimation()

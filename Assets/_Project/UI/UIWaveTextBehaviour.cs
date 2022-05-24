@@ -17,7 +17,7 @@ namespace Might.UI
         public void UpdateWaveText()
         {
             currentWaveNum++;
-            waveText.text = "WAVE " + currentWaveNum.ToString();
+            waveText.text = "WAVE " + currentWaveNum.ToString() + "/10";
         }
        
     }

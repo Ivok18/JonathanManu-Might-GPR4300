@@ -1,6 +1,5 @@
+using Might.Entity.Enemy.States;
 using Might.Entity.Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Might.Entity.Enemy
@@ -8,10 +7,12 @@ namespace Might.Entity.Enemy
     public class EnemyTargetHitDetection : MonoBehaviour
     {
         private EnemyStateTracker enemyStateTracker;
+        private EnemyAIAttackState attackState;
 
         private void Awake()
         {
             enemyStateTracker = GetComponentInParent<EnemyStateTracker>();
+            attackState = GetComponentInParent<EnemyAIAttackState>();
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -26,7 +27,7 @@ namespace Might.Entity.Enemy
                 if(playerStateTracker.CurrentState != PlayerState.Defending)
                 {
                     PlayerHealth target = collision.GetComponent<PlayerHealth>();
-                    target.ReceiveDamage(1);
+                    target.ReceiveDamage(attackState.Atk);
                 }
                 //Knockback enemy if player is shielding
                 else

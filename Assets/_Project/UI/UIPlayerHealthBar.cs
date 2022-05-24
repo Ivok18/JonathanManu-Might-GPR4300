@@ -15,23 +15,23 @@ namespace Might.UI
         }
         private void OnEnable()
         {
-            PlayerHealth.OnPlayerReceivedDamageCallback += HandlePlayerReceivedDamage;
+            PlayerHealth.OnPlayerHealthChangedCallback += HandlePlayerHealthChanged;
         }
 
 
         private void OnDisable()
         {
-            PlayerHealth.OnPlayerReceivedDamageCallback -= HandlePlayerReceivedDamage;
+            PlayerHealth.OnPlayerHealthChangedCallback -= HandlePlayerHealthChanged;
         }
 
-        private void HandlePlayerReceivedDamage(float newHealth, float maxHealth)
+        private void HandlePlayerHealthChanged(float oldHealth, float newHealth, float maxHealth)
         {
             UpdateBar(newHealth, maxHealth);
         }
 
         public void UpdateBar(float newHealth, float maxHealth)
         {
-            slider.value = newHealth / maxHealth;
+           slider.value = newHealth / maxHealth;
         }
     }
 }

@@ -94,7 +94,7 @@ namespace Might.Entity.Enemy.States
                 #region Get enemy state switcher
                 EnemyStateSwitcher enemyStateSwitcher = GetComponent<EnemyStateSwitcher>();
                 #endregion
-                enemyStateSwitcher.SwitchToState(EnemyState.Attacking); 
+                enemyStateSwitcher.SwitchToState(EnemyState.ChargingAttack); 
             }
         }
 
