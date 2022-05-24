@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Scene Manu.unity
     guid: 1c11723ce3bf620449860d66954d9c7f
+  - enabled: 1
+    path: Assets/_Project/Scenes/WinScreenMenu.unity
+    guid: 9092506f9f8357f408d38f70d73ae4cb
   m_configObjects: {}

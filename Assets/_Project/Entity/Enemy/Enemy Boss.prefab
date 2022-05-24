@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3798c0d2a8450844a0b63b20aa9aba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 10
+  atk: 5
   swordStartRotation: 100
   swordRotationOffset: -40
   sword: {fileID: 4652328606413638403}
@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d3ce6b91112c54087caa15794b542e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 30
   currentHealth: 0
 --- !u!114 &-5157172406716648756
 MonoBehaviour:

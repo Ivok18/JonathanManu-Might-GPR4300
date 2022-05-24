@@ -3,6 +3,7 @@ using Might.GameManager;
 using Might.MapGeneration;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 namespace Might.WaveSystem
 {
@@ -44,7 +45,7 @@ namespace Might.WaveSystem
                 }
                 else
                 {
-                    //Load Win Scene
+                    SceneManager.LoadScene("WinScreenMenu");
                 }
 
                 OnWaveEndedCallback?.Invoke();              
