@@ -4,30 +4,8 @@ using UnityEngine;
 
 namespace Might.Entity.Enemy.States
 {
-
-
     public class EnemyAIFollowPlayerState : MonoBehaviour
-    {
-        // Enemy movement after player death
-        /*
-        private Rigidbody2D rb;
-
-        private void OnEnable()
-        {
-            PlayerHealth.OnPlayerDeath += DisableEnemyMovement;
-        }
-
-        private void OnDisable()
-        {
-            PlayerHealth.OnPlayerDeath -= DisableEnemyMovement;
-        }
-
-        private void Start()
-        {
-            EnableEnemyMovement();
-        }
-        */
-
+    {   
         [SerializeField] private float stopDistance;
         private AIPath enemyAI;
 
@@ -97,19 +75,5 @@ namespace Might.Entity.Enemy.States
                 enemyStateSwitcher.SwitchToState(EnemyState.ChargingAttack); 
             }
         }
-
-        // Enemy movement after player death
-        /*
-        private void DisableEnemyMovement()
-        {
-            rb.bodyType = RigidbodyType2D.Static;
-        }
-
-        private void EnableEnemyMovement()
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic;
-        }
-        */
-        // End of Enemy movement after player death
     }
 }

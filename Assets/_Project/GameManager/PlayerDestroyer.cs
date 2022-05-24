@@ -1,7 +1,4 @@
 using Might.Entity.Player;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Might.GameManager

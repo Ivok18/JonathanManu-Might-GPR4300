@@ -7,7 +7,6 @@ namespace Might.GameManager
     public class EnemySpawner : MonoBehaviour
     {
         [SerializeField] private GenerationBehaviour generation;
-        //[SerializeField] private GameObject enemyPrefab;
 
         public delegate void EnemySpawnedCallback(Transform enemy);
         public static event EnemySpawnedCallback OnEnemySpawnedCallback;

@@ -1,6 +1,5 @@
 using UnityEngine;
 using Might.Entity.Player.States;
-using System;
 
 namespace Might.Entity.Player
 {
@@ -11,17 +10,6 @@ namespace Might.Entity.Player
         private Vector2 movement;
         private Rigidbody2D rb;
 
-        private void OnEnable()
-        {
-            PlayerHealth.OnPlayerDeath += DisablePlayerMovement;
-        }
-
-        private void OnDisable()
-        {
-            PlayerHealth.OnPlayerDeath -= DisablePlayerMovement;
-        }
-      
-
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -30,7 +18,7 @@ namespace Might.Entity.Player
         private void Start()
         {
             currentMoveSpeed = moveSpeed;
-            EnablePlayerMovement();
+      
         }
 
         private void Update()
@@ -61,31 +49,10 @@ namespace Might.Entity.Player
            
         }
 
-      
-
         private void FixedUpdate()
         {
             rb.velocity = movement * currentMoveSpeed * Time.fixedDeltaTime;                    
         }
 
-        public void ImmobilizePlayer()
-        {
-            currentMoveSpeed = 0;
-        }
-
-        public void RestoreMovement()
-        {
-            currentMoveSpeed = moveSpeed;
-        }
-
-        private void DisablePlayerMovement()
-        {
-            rb.bodyType = RigidbodyType2D.Static;
-        }
-
-        private void EnablePlayerMovement()
-        {
-            rb.bodyType = RigidbodyType2D.Dynamic; 
-        }
     }
 }

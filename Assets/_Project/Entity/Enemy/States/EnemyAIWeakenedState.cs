@@ -14,8 +14,6 @@ namespace Might.Entity.Enemy.States
         [SerializeField] private float stateDuration;
         [SerializeField] private float timeUntilEndOfState;
  
- 
-
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -90,10 +88,5 @@ namespace Might.Entity.Enemy.States
                 enemyStateSwitcher.SwitchToState(EnemyState.FollowingPlayer);
             }
         }
-
-
-        
-
-        
     }
 }

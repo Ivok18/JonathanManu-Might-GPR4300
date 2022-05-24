@@ -1,12 +1,9 @@
-using System;
 using UnityEngine;
 
 namespace Might.Entity.Player
 {
     public class PlayerHealth : MonoBehaviour
     {
-        public static event Action OnPlayerDeath;
-
         [SerializeField] private float maxHealth;
         [SerializeField] private float currentHealth;
 
@@ -34,20 +31,9 @@ namespace Might.Entity.Player
             {
                 FindObjectOfType<AudioManager>().Play("PlayerDeath");
                 OnPlayerDiedCallback?.Invoke(gameObject);
-                OnPlayerDeath?.Invoke();
             }
         }
 
-        public void Regen()
-        {
-            float oldHealth = currentHealth;
-
-            float regenValue = oldHealth * 0.3f;
-            currentHealth += regenValue;
-
-            OnPlayerHealthChangedCallback?.Invoke(oldHealth, currentHealth, maxHealth);
-
-        }
-
+       
     }
 }

@@ -76,18 +76,12 @@ namespace Might.Entity.Enemy.States
             #endregion
             if (enemyStateTracker.CurrentState != EnemyState.Attacking) return;
 
-          
-
-
-
             //Perform attack until the move is complete
             #region Prevent capacity overload (just some details dw)
             DOTween.SetTweensCapacity(10000, 10000);
             #endregion
             EndRotation = GetSwordRotation() + SwordRotationOffset;
             Sword.DORotate(new Vector3(0, 0, EndRotation), 0.25f, RotateMode.Fast);
-
-
 
             if (AttackIsCompleted())
             {
@@ -128,7 +122,5 @@ namespace Might.Entity.Enemy.States
         {
             return transform.localEulerAngles.z;
         }
-
-
     }
 }

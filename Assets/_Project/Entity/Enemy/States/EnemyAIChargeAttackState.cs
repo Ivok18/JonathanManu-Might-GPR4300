@@ -1,7 +1,4 @@
 using Pathfinding;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Might.Entity.Enemy.States
@@ -45,9 +42,6 @@ namespace Might.Entity.Enemy.States
                 #endregion
                 //Desactivate attack warning
                 attackWarning.AttackWarningSprite.enabled = false;
-
-                //timeUntilNextAttack = timeBetweenAttacks;
-
             }
         }
 

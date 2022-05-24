@@ -14,8 +14,6 @@ namespace Might.Entity.Enemy
         public delegate void EnemyDiedCallback();
         public static event EnemyDiedCallback OnEnemyDiedCallback;
 
-
-        
         private void Start()
         {
             currentHealth = maxHealth;

@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Might.Entity.Enemy;
 using UnityEngine;
 
 namespace Might.Entity.Player

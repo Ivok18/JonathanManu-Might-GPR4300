@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Might.Entity.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,15 +8,15 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHealth.OnPlayerDeath += EnableGameOverMenu;
+        PlayerHealth.OnPlayerDiedCallback += EnableGameOverMenu;
     }
 
     private void OnDisable()
     {
-        PlayerHealth.OnPlayerDeath -= EnableGameOverMenu;
+        PlayerHealth.OnPlayerDiedCallback -= EnableGameOverMenu;
     }
 
-    public void EnableGameOverMenu()
+    public void EnableGameOverMenu(GameObject player)
     {
         gameOverMenu.SetActive(true);
     }

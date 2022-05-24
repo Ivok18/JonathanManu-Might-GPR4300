@@ -38,8 +38,6 @@ namespace Might.Entity.Enemy
                     #endregion
                     enemyStateSwitcher.SwitchToState(EnemyState.IsBeingWeakened);
                 }
-
-
             }
         }
     }
