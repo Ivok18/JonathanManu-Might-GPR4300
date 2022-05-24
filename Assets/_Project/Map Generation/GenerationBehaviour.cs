@@ -100,13 +100,7 @@ namespace Might.MapGeneration
             Generation();
         }
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {            
-                Generation();               
-            }         
-        }
+      
 
         public void Generation()
         {

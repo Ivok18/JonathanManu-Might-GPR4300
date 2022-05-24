@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace Might.MapGeneration
 {
-    [CustomEditor(typeof(GenerationBehaviour))]
+   /* [CustomEditor(typeof(GenerationBehaviour))]
     public class MapGenButton : Editor
     {
         public override void OnInspectorGUI()
@@ -19,5 +19,5 @@ namespace Might.MapGeneration
                 targetSpript.Generation();
             }
         }
-    }
+    }*/
 }

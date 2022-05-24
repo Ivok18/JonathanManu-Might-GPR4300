@@ -308,12 +308,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9a329d0a0cf3ffa4b90e9abc09ff140c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -47686,7 +47686,7 @@ PrefabInstance:
         type: 3}
       propertyPath: waves.Array.data[0].spawner.typeOfEnemies.Array.data[0]
       value: 
-      objectReference: {fileID: 994574649533923349, guid: 055c78af512a5764587be5f43bc2604b,
+      objectReference: {fileID: 994574649533923349, guid: 805e7e4a9b497ee479cdfb709097446d,
         type: 3}
     - target: {fileID: 8813727290138539343, guid: b1775cf6cd317224b92fbb91e3ec2059,
         type: 3}
