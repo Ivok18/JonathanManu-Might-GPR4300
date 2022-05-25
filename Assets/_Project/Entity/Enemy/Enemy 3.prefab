@@ -662,7 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3798c0d2a8450844a0b63b20aa9aba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 2
+  atk: 4
   swordStartRotation: 100
   swordRotationOffset: -40
   sword: {fileID: 4652328606413638403}
