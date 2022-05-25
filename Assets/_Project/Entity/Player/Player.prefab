@@ -713,7 +713,7 @@ MonoBehaviour:
   startScale: {x: 0.65, y: 0.65, z: 0.65}
   shieldRemainingTime: 0
   shieldMaxTime: 10
-  shieldConsumeSpeed: 2
+  shieldConsumeSpeed: 3.5
   shieldSoundEffect: {fileID: 8122913477967827179}
 --- !u!114 &3893738552135267847
 MonoBehaviour:
